@@ -4,7 +4,7 @@
 
 A homepage anterior concentrava texto e foto em um painel escuro arredondado, com legenda sobreposta. A vitrine repetia cards e botões de marketplace, a cobertura usava círculos decorativos e o ritmo acumulava vários blocos de mesma importância. Os textos de destaque não diferenciavam claramente material, pedido e logística.
 
-Nova direção: Industrial Corporate — Editorial & Precision. A homepage utiliza grid de 12 colunas, hero assimétrico de cinco colunas de texto e sete de fotografia, faixas operacionais compactas e seções de função distinta. Header branco, títulos industriais, legenda fora da foto, links discretos e footer claro. As páginas internas mantêm seu design; os estilos estão limitados a `.corporate-home` e aos componentes editoriais exclusivos.
+Nova direção: Industrial Corporate — Editorial & Precision. A homepage utiliza grid de 12 colunas, hero assimétrico de cinco colunas de texto e sete de fotografia, faixas operacionais compactas e seções de função distinta. Header branco, títulos industriais, legenda fora da foto, links discretos e footer claro. Na rodada seguinte, o catálogo e os detalhes adotaram o mesmo sistema sob `.corporate-site`; as demais páginas institucionais mantêm seu design.
 
 ## Sistema visual
 
@@ -36,7 +36,7 @@ Check de 49 arquivos sem erros, avisos ou sugestões; build estático e 12 teste
 
 Segunda revisão de composição: eliminada a legenda sobreposta do hero, substituído o desenho anterior com sombreamento por um esquema plano, retirada a vitrine demonstrativa da homepage, removido o gráfico circular de cobertura e restringidas cores/botões ao conteúdo comercial. SVG novo renderizado e inspecionado como imagem.
 
-O navegador automatizado do Codex falhou ao iniciar por erro do ambiente. Foi solicitada autorização para uma alternativa local em modo headless; a validação visual da página em desktop/celular depende dessa alternativa ou da revisão do cliente na prévia. Não se atribuem capturas antigas ao novo layout.
+O navegador automatizado do Codex falhou ao iniciar por erro do ambiente. O proprietário autorizou a alternativa local: Brave/Chromium headless. Revisão visual e funcional desktop/mobile concluída, com capturas atuais em `artifacts/revisao-final/`. Confira [Revisão final](REVISAO_FINAL.md) para páginas, viewports e reprodução.
 
 ## Repositório
 

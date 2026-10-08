@@ -35,4 +35,4 @@ Formulário, Sobre, Entregas, Contato, FAQ e botão flutuante concluídos. Whats
 
 ## Catálogo corporativo premium
 
-Vitrine e fichas individuais atualizadas no design editorial da homepage. Aprovação individual dos onze materiais continua pendente e obrigatória para publicação. Especificações, unidades, variantes e autorização das fotos não foram presumidas. Revisão visual em navegador real do novo catálogo permanece pendente por indisponibilidade da automação local; build e testes funcionais passaram.
+Vitrine e fichas individuais atualizadas no design editorial da homepage. Aprovação individual dos onze materiais continua pendente e obrigatória para publicação. Especificações, unidades, variantes e autorização das fotos não foram presumidas. Revisão visual e funcional em Brave/Chromium autorizada e concluída em 1440/390/320 px; build e testes passaram. Capturas e reprodução em REVISAO_FINAL.md.

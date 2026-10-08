@@ -10,12 +10,12 @@ As onze referências abaixo continuam demonstrativas no desenvolvimento; nenhuma
 
 ## Validação desta atualização
 
-- `npm run check`: 51 arquivos, zero erros, avisos ou sugestões na revisão final. A indicação de foco do teste de interação foi declarada explicitamente para eliminar a sugestão de tipagem.
+- `npm run check`: 52 arquivos, zero erros, avisos ou sugestões na revisão final. A indicação de foco do teste de interação foi declarada explicitamente para eliminar a sugestão de tipagem.
 - `npm run build`: seis páginas, sem detalhes de produtos não aprovados.
 - `npm test`: 13 testes aprovados. Novo teste executa o controlador real em uma superfície DOM mínima: filtros pela URL, união de categorias, pesquisa, ausência de resultados, contagem demonstrativa, limpeza/foco e popstate. Não substitui navegador visual.
 - `node --experimental-strip-types scripts/verify-dev-catalog.mjs` com `npm run dev` ativo: catálogo, onze detalhes, onze imagens WebP e contato HTTP 200; links de orçamento identificam cada slug; um H1 por detalhe e design system compartilhado.
 - Revisão de código: breakpoints 1199/767/639 px, grids com minmax(0,1fr), imagens proporcionais, títulos com quebra, ações flexíveis, alvos de 44/48 px, estados de foco e redução de movimento.
-- A ferramenta de navegador falhou ao iniciar com `windows sandbox failed: helper_unknown_error: setup refresh had errors`. Não há screenshots novos ou confirmação visual em viewport real nesta rodada. Revisão visual desktop/mobile permanece pendente; capturas históricas não representam este redesign.
+- Após autorização do proprietário, a revisão foi concluída em Brave/Chromium headless: seis páginas em 1440/390/320 px, sem overflow, imagens quebradas ou erros de console. Pesquisa, categorias combinadas, teclado, limpeza/foco, URL, menu mobile e orçamento foram testados no navegador. Capturas atuais em `artifacts/revisao-final/`; veja [Revisão final](REVISAO_FINAL.md). Capturas históricas continuam identificadas como layouts anteriores.
 - Nenhum dado de orçamento foi enviado; nenhum deploy realizado. Commit/push de código autorizados pelo proprietário.
 
 ## Documentação anterior e manutenção

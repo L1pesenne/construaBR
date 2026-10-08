@@ -8,7 +8,7 @@ Vitrine editorial com fotografias grandes, busca por termos, categorias combiná
 
 Onze referências demonstrativas em desenvolvimento; zero produtos comercialmente aprovados. O build público apresenta catálogo em preparação e não gera páginas de materiais pendentes. Confira [Catálogo](docs/CATALOGO.md) para produtos, fontes e aprovação.
 
-Validação atual: check de 49 arquivos sem diagnósticos, build concluído, 13 testes aprovados; catálogo, 11 detalhes e 11 fotos conferidos por HTTP na prévia local. Para repetir: `npm run dev` e, em outro terminal, `node --experimental-strip-types scripts/verify-dev-catalog.mjs`. Navegador automatizado indisponível por falha do sandbox; revisão visual desktop/mobile ainda pendente nesta rodada. Sem deploy.
+Validação atual: check de 52 arquivos sem diagnósticos, build concluído, 13 testes aprovados; catálogo, 11 detalhes e 11 fotos conferidos por HTTP. Revisão em Brave/Chromium autorizada e concluída: seis páginas em 1440/390/320 px, sem overflow, fotos quebradas ou erros de console. Busca, filtros, menu mobile e orçamento testados no navegador. Capturas em `artifacts/revisao-final/`; reprodução e pendências em [Revisão final](docs/REVISAO_FINAL.md). Sem deploy.
 ## Redesign corporativo — rodada 1
 
 Homepage reconstruída sobre o projeto existente: hero editorial em 12 colunas, fotografia original sem sobreposição, faixa operacional compacta, materiais com apresentação editorial, logística em contraste, regiões em lista alinhada, CTA comercial e rodapé corporativo. Paleta neutra, SVG oficial intacto e fontes locais existentes. Design system editorial compartilhado com o catálogo e os detalhes; demais páginas internas mantidas.
@@ -18,7 +18,7 @@ Produtos na homepage exigem aprovação comercial. Enquanto o catálogo não pos
 - [Decisões de design e validação](docs/REDESIGN.md).
 - Repositório: [L1pesenne/construaBR](https://github.com/L1pesenne/construaBR).
 - Check de 49 arquivos sem diagnósticos; build e 12 testes aprovados.
-- Prévia local respondeu HTTP 200. Inspeção visual automatizada da página pendente por falha de inicialização do navegador do Codex; alternativa local solicitada. Não há capturas novas da homepage confirmadas até essa validação.
+- A falha inicial do navegador do Codex foi contornada com Brave/Chromium headless autorizado. Revisão visual da homepage e capturas atuais concluídas; confira [Revisão final](docs/REVISAO_FINAL.md).
 - As capturas das etapas anteriores abaixo representam os layouts anteriores.
 
 ## Implementação da etapa 4
