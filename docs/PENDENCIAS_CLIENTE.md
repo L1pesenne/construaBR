@@ -32,3 +32,7 @@ O catálogo da etapa 3 está implementado. Para publicar cada produto, registrar
 ## Atualização da etapa 4
 
 Formulário, Sobre, Entregas, Contato, FAQ e botão flutuante concluídos. WhatsApp oficial informado: (21) 99547-1761. E-mail informado: atendimento@construabr.com. Ambos estão registrados na configuração central; o WhatsApp também alimenta os links de orçamento e o e-mail é exibido na página Contato. Endereço/base, domínio e horários continuam desconhecidos e não são apresentados como dados confirmados. Não foram recebidas fotos da frota ou instalações. A aprovação individual do catálogo continua necessária.
+
+## Catálogo corporativo premium
+
+Vitrine e fichas individuais atualizadas no design editorial da homepage. Aprovação individual dos onze materiais continua pendente e obrigatória para publicação. Especificações, unidades, variantes e autorização das fotos não foram presumidas. Revisão visual em navegador real do novo catálogo permanece pendente por indisponibilidade da automação local; build e testes funcionais passaram.

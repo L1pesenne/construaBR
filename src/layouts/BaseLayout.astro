@@ -35,5 +35,5 @@ const canonical = company.domain ? new URL(Astro.url.pathname, company.domain).h
     {canonical && <meta property="og:url" content={canonical} />}
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
   </head>
-  <body class:list={{ 'corporate-home': editorial }}><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo" tabindex="-1"><slot /></main>{editorial ? <EditorialFooter /> : <Footer />}<FloatingContact /></body>
+  <body class:list={{ 'corporate-site': editorial, 'corporate-home': editorial && Astro.url.pathname === '/' }}><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo" tabindex="-1"><slot /></main>{editorial ? <EditorialFooter /> : <Footer />}<FloatingContact /></body>
 </html>

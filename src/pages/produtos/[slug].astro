@@ -4,39 +4,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactButton from '../../components/ContactButton.astro';
 import ProductGallery from '../../components/ProductGallery.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import SectionTitle from '../../components/SectionTitle.astro';
-import Icon from '../../components/Icon.astro';
-import { company, whatsappUrl } from '../../config/company';
+import { company } from '../../config/company';
 import { productRequestMessage } from '../../lib/quotation';
 import { canPublishProduct } from '../../lib/catalog';
 import { visibleProducts, type Product } from '../../data/products';
 export const getStaticPaths = (() => visibleProducts.map(product => ({ params: { slug: product.slug }, props: { product } }))) satisfies GetStaticPaths;
 interface Props { product: Product; }
 const { product } = Astro.props;
-const related = visibleProducts.filter(item => item.id !== product.id && item.category === product.category).slice(0, 3);
-const confirmationLabel = product.confirmation === 'confirmed' ? 'Confirmado pela ConstruaBR' : product.confirmation === 'supplier-reference' ? 'Referência de fornecedor · não aprovada' : 'Pendente de validação pela ConstruaBR';
+const related = visibleProducts.filter(item => item.id !== product.id && item.category === product.category).slice(0, 2);
+const approved = canPublishProduct(product);
 ---
-<BaseLayout title={product.name} description={product.description} noindex={!canPublishProduct(product)}>
-  <div class="container product-page">
-    <nav class="breadcrumbs" aria-label="Caminho de navegação"><a href="/">Início</a> / <a href="/produtos/">Produtos</a> / <span aria-current="page">{product.name}</span></nav>
-    {product.status === 'demo' && <p class="demo-notice"><strong>Demonstração de desenvolvimento.</strong> Esta referência não constitui confirmação de catálogo ou estoque.</p>}
-    <div class="product-detail-grid">
+<BaseLayout title={product.name} description={product.description} noindex={!approved} editorial>
+  <div class="container material-page">
+    <nav class="material-return" aria-label="Navegação do catálogo"><a class="editorial-link" href="/produtos/">← Voltar aos materiais</a></nav>
+    <header class="material-heading"><span class="editorial-kicker">{product.category}</span><h1>{product.name}</h1></header>
+    {!approved && <p class="catalog-disclosure"><strong>{product.confirmation === 'supplier-reference' ? 'Referência de fornecedor não aprovada.' : 'Demonstração de desenvolvimento.'}</strong> Material pendente de validação pela ConstruaBR. Esta página não confirma disponibilidade ou estoque.</p>}
+    <div class="material-overview editorial-grid">
       <ProductGallery product={product} />
-      <section class="product-summary" aria-labelledby="product-title">
-        <span class="eyebrow">{product.category}</span><span class="product-validation">{confirmationLabel}</span>
-        <h1 id="product-title">{product.name}</h1><p class="product-introduction">{product.description}</p>
-        <div class="supply-highlight"><Icon name="layers" size={24} /><span>Fornecimento exclusivamente a granel.<br /><strong>Sem produtos ensacados ou fracionados.</strong></span></div>
-        <ContactButton materialSlug={product.slug} message={productRequestMessage(product.name)} />
-        {!whatsappUrl() && <p class="quotation-pending">Número oficial de WhatsApp pendente. O botão leva às informações de contato e mantém o material selecionado.</p>}
-        <a href="/entregas/" class="text-link">Conhecer as condições de entrega <Icon name="arrow" size={18} /></a>
-      </section>
+      <section class="material-summary" aria-label="Consulta comercial"><span class="editorial-kicker">{approved ? 'MATERIAL CONFIRMADO PELA CONSTRUABR' : 'REFERÊNCIA DOCUMENTAL'}</span><p class="material-introduction">{product.description}</p><dl><div><dt>Fornecimento</dt><dd>Exclusivamente a granel. Sem materiais ensacados ou fracionados.</dd></div><div><dt>Unidade de referência</dt><dd>{product.referenceUnit ?? 'A confirmar com a equipe no orçamento.'}</dd></div><div><dt>Transporte</dt><dd>Caminhões basculantes, dimensionados conforme o volume do pedido.</dd></div></dl><ContactButton materialSlug={product.slug} message={productRequestMessage(product.name)} /><p class="material-quote-note">Informe a quantidade aproximada e o endereço de entrega. O material já estará selecionado no formulário.</p><a class="editorial-link" href="/entregas/">Condições de entrega →</a></section>
     </div>
-    <div class="product-information">
-      <section class="product-description" aria-labelledby="description-title"><span class="eyebrow">CONHEÇA A REFERÊNCIA</span><h2 id="description-title">Sobre este material.</h2><p>{product.detailedDescription}</p><div class="document-source"><strong>Fonte documental</strong><span>{product.sourceDocument.label} · página {product.sourceDocument.page}.</span><span>{product.sourceDocument.kind === 'supplier-catalog' ? 'Catálogo de fornecedor; não comprova oferta pela ConstruaBR.' : 'Documento fornecido como referência; confirmação comercial independente.'}</span></div></section>
-      <section class="technical-panel" aria-labelledby="technical-title"><h2 id="technical-title">Características técnicas</h2>{product.technicalCharacteristics.length ? <dl>{product.technicalCharacteristics.map(characteristic => <div><dt>{characteristic.label}</dt><dd>{characteristic.value}<small>Fonte: {characteristic.source}</small></dd></div>)}</dl> : <p>Não há características técnicas confirmadas para esta referência. Granulometria, especificações e adequação ao projeto precisam ser validadas com a equipe.</p>}<div class="reference-unit"><strong>Unidade de referência</strong><span>{product.referenceUnit ?? 'Ainda não informada. Volume e condições são definidos no orçamento.'}</span></div></section>
+    <div class="material-information editorial-grid">
+      <section class="material-description" aria-labelledby="description-title"><span class="editorial-kicker">SOBRE O MATERIAL</span><h2 id="description-title">Informação para<br />planejar seu pedido.</h2><p>{product.detailedDescription}</p><div class="material-source"><strong>Fonte documental</strong><span>{product.sourceDocument.label} · página {product.sourceDocument.page}.</span><span>{product.sourceDocument.kind === 'supplier-catalog' ? 'Catálogo de fornecedor; não comprova oferta pela ConstruaBR.' : 'Documento fornecido como referência. Aprovação comercial independente.'}</span></div></section>
+      <section class="material-technical" aria-labelledby="technical-title"><span class="editorial-kicker">ESPECIFICAÇÕES</span><h2 id="technical-title">Características técnicas.</h2>{product.technicalCharacteristics.length ? <dl>{product.technicalCharacteristics.map(characteristic => <div><dt>{characteristic.label}</dt><dd>{characteristic.value}<small>Fonte: {characteristic.source}</small></dd></div>)}</dl> : <p>Não há características técnicas confirmadas para esta referência. Granulometria, especificações e adequação ao projeto precisam ser validadas com a equipe.</p>}</section>
     </div>
-    <section class="product-supply" aria-labelledby="supply-title"><div><span class="eyebrow">DO MATERIAL À SUA OBRA</span><h2 id="supply-title">O pedido define o transporte.</h2></div><ul><li><Icon name="truck" size={24} /><span>Transporte exclusivamente em caminhões basculantes, dimensionados conforme o volume do pedido.</span></li><li><Icon name="clock" size={24} /><span>Entrega em {company.deliveryHours} horas após aprovação pelo WhatsApp, conforme as condições operacionais.</span></li><li><Icon name="pin" size={24} /><span>Atendimento limitado a {company.serviceRadiusKm} km da base. Confirme o endereço e o acesso à obra no orçamento.</span></li></ul></section>
-    {related.length > 0 && <section class="related-products" aria-labelledby="related-title"><SectionTitle id="related-title" eyebrow="CONTINUE EXPLORANDO" title="Outros materiais da categoria."><a class="text-link" href="/produtos/">Ver todos os materiais <Icon name="arrow" size={18} /></a></SectionTitle><div class="product-grid">{related.map(item => <ProductCard product={item} />)}</div></section>}
-    <a href="/produtos/" class="text-link product-back">← Voltar aos materiais</a>
+    <section class="material-logistics" aria-labelledby="supply-title"><span class="editorial-kicker">DO MATERIAL À SUA OBRA</span><h2 id="supply-title">O volume define a logística.</h2><dl><div><dt>01 / Transporte</dt><dd>Exclusivamente em caminhões basculantes. Dimensionamento conforme o volume aprovado.</dd></div><div><dt>02 / Prazo</dt><dd>Entrega em {company.deliveryHours} horas após aprovação pelo WhatsApp, conforme as condições operacionais.</dd></div><div><dt>03 / Cobertura</dt><dd>Raio máximo de {company.serviceRadiusKm} km da base. Atendimento condicionado à cobertura efetiva e ao acesso à obra.</dd></div></dl></section>
+    {related.length > 0 && <section class="material-related" aria-labelledby="related-title"><header><div><span class="editorial-kicker">NA MESMA CATEGORIA</span><h2 id="related-title">Outras referências.</h2></div><a class="editorial-link" href="/produtos/">Ver catálogo →</a></header><div class="catalog-grid">{related.map(item => <ProductCard product={item} />)}</div></section>}
   </div>
 </BaseLayout>

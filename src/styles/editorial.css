@@ -1,28 +1,28 @@
-/* Industrial Corporate — Editorial & Precision. Escopo exclusivo da homepage. */
-.corporate-home { --ink:#172126; --paper:#fff; --mist:#f3f3f0; --muted:#687178; --line:#d7dbd9; --accent:#bd632c; color:var(--ink); background:var(--paper); }
-.corporate-home .container { width:min(1360px,calc(100% - 112px)); }
-.corporate-home h1,.corporate-home h2 { font-family:var(--font-display); font-weight:600; letter-spacing:-.018em; }
-.corporate-home h2 { font-size:clamp(42px,4.2vw,62px); line-height:1.06; }
-.corporate-home .editorial-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:24px; }
-.corporate-home .editorial-kicker { display:block; font-size:10px; line-height:1.6; font-weight:600; letter-spacing:.13em; color:var(--muted); }
-.corporate-home .button { border-radius:0; min-height:50px; padding:14px 19px; font-size:12px; box-shadow:none; transition:background .18s,color .18s; }
-.corporate-home .button:hover { transform:none; }
-.corporate-home .button-orange { background:var(--ink); color:white; border-color:var(--ink); }
-.corporate-home .button-orange:hover { background:#33434b; border-color:#33434b; }
-.corporate-home .button-orange svg:first-child { display:none; }
-.corporate-home .button-outline { border-color:#8b9497; background:transparent; color:var(--ink); }
-.corporate-home .button-outline:hover { background:var(--mist); }
-.corporate-home .button-outline svg:first-child { display:none; }
-.corporate-home .editorial-link { display:inline-flex; align-items:center; justify-content:space-between; gap:20px; font-size:12px; font-weight:600; min-height:48px; border-bottom:1px solid var(--ink); }
-.corporate-home .editorial-link:hover { color:#984715; border-color:#984715; }
-.corporate-home :focus-visible { outline-color:#984715; }
-.corporate-home .site-header { background:white; backdrop-filter:none; border-bottom:1px solid var(--line); }
-.corporate-home .header-inner { min-height:98px; }
-.corporate-home .brand { width:222px; gap:6px; }
-.corporate-home .brand-subtitle { font-size:8px; letter-spacing:.35em; color:#687178; }
-.corporate-home .main-navigation { gap:30px; font-size:12px; }
-.corporate-home .main-navigation > a[aria-current] { color:var(--ink); text-decoration-color:var(--accent); text-decoration-thickness:2px; }
-.corporate-home .main-navigation .button { margin-left:20px; }
+/* Industrial Corporate — Editorial & Precision. Design system compartilhado pela homepage e pelo catálogo. */
+.corporate-site { --ink:#172126; --paper:#fff; --mist:#f3f3f0; --muted:#687178; --line:#d7dbd9; --accent:#bd632c; color:var(--ink); background:var(--paper); }
+.corporate-site .container { width:min(1360px,calc(100% - 112px)); }
+.corporate-site h1,.corporate-site h2 { font-family:var(--font-display); font-weight:600; letter-spacing:-.018em; }
+.corporate-site h2 { font-size:clamp(42px,4.2vw,62px); line-height:1.06; }
+.corporate-site .editorial-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:24px; }
+.corporate-site .editorial-kicker { display:block; font-size:10px; line-height:1.6; font-weight:600; letter-spacing:.13em; color:var(--muted); }
+.corporate-site .button { border-radius:0; min-height:50px; padding:14px 19px; font-size:12px; box-shadow:none; transition:background .18s,color .18s; }
+.corporate-site .button:hover { transform:none; }
+.corporate-site .button-orange { background:var(--ink); color:white; border-color:var(--ink); }
+.corporate-site .button-orange:hover { background:#33434b; border-color:#33434b; }
+.corporate-site .button-orange svg:first-child { display:none; }
+.corporate-site .button-outline { border-color:#8b9497; background:transparent; color:var(--ink); }
+.corporate-site .button-outline:hover { background:var(--mist); }
+.corporate-site .button-outline svg:first-child { display:none; }
+.corporate-site .editorial-link { display:inline-flex; align-items:center; justify-content:space-between; gap:20px; font-size:12px; font-weight:600; min-height:48px; border-bottom:1px solid var(--ink); }
+.corporate-site .editorial-link:hover { color:#984715; border-color:#984715; }
+.corporate-site :focus-visible { outline-color:#984715; }
+.corporate-site .site-header { background:white; backdrop-filter:none; border-bottom:1px solid var(--line); }
+.corporate-site .header-inner { min-height:98px; }
+.corporate-site .brand { width:222px; gap:6px; }
+.corporate-site .brand-subtitle { font-size:8px; letter-spacing:.35em; color:#687178; }
+.corporate-site .main-navigation { gap:30px; font-size:12px; }
+.corporate-site .main-navigation > a[aria-current] { color:var(--ink); text-decoration-color:var(--accent); text-decoration-thickness:2px; }
+.corporate-site .main-navigation .button { margin-left:20px; }
 .editorial-hero { padding-block:42px 44px; }
 .editorial-hero-copy { grid-column:1/6; align-self:center; padding-right:22px; }
 .editorial-hero-copy .editorial-kicker { margin-bottom:31px; }
@@ -73,8 +73,8 @@
 .editorial-logistics-specs > div { border-top:1px solid #435159; padding-block:15px; display:grid; grid-template-columns:130px 1fr; gap:18px; }
 .editorial-logistics-specs dt { font-size:11px; color:white; }
 .editorial-logistics-specs dd { font-size:12px; color:#bbc7cc; margin:0; }
-.corporate-home .editorial-logistics .button { color:white; border-color:#71838a; }
-.corporate-home .editorial-logistics .button:hover { background:#33434b; }
+.corporate-site .editorial-logistics .button { color:white; border-color:#71838a; }
+.corporate-site .editorial-logistics .button:hover { background:#33434b; }
 .editorial-logistics-figure { grid-column:7/-1; align-self:center; margin:0; }
 .editorial-logistics-figure img { width:100%; height:auto; background:var(--ink); }
 .editorial-logistics-figure figcaption { display:flex; flex-direction:column; gap:4px; font-size:10px; color:#acb9bf; padding-top:17px; border-top:1px solid #435159; }
@@ -95,25 +95,25 @@
 .editorial-footer { padding-top:58px; border-top:1px solid var(--line); }
 .editorial-footer-brand { grid-column:1/5; }.editorial-footer-brand > p { font-size:12px; color:var(--muted); max-width:265px; margin-top:24px; }
 .editorial-footer-navigation { grid-column:6/8; }.editorial-footer-contact { grid-column:9/-1; }
-.corporate-home .editorial-footer h2 { font:600 11px/1.6 var(--font-sans); letter-spacing:.01em; margin-bottom:22px; }
+.corporate-site .editorial-footer h2 { font:600 11px/1.6 var(--font-sans); letter-spacing:.01em; margin-bottom:22px; }
 .editorial-footer-navigation a { font-size:12px; padding-block:4px; display:inline-block; }.editorial-footer a:not(.brand):hover { color:#984715; text-decoration:underline; text-underline-offset:4px; }
 .editorial-footer-contact p,.editorial-footer-contact > a { display:block; font-size:12px; margin-bottom:10px; overflow-wrap:anywhere; }
 .editorial-footer-contact > a:nth-of-type(1) { font-weight:600; }
 .editorial-footer-bottom { border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:25px; padding-block:25px 90px; margin-top:45px; color:var(--muted); font-size:10px; }
-.corporate-home .floating-contact { box-shadow:none; border-radius:0; background:var(--ink); border-color:var(--ink); color:#fff; font-size:12px; }
-.corporate-home .floating-contact:hover { background:#33434b; }.corporate-home .floating-contact small { display:none; }
+.corporate-site .floating-contact { box-shadow:none; border-radius:0; background:var(--ink); border-color:var(--ink); color:#fff; font-size:12px; }
+.corporate-site .floating-contact:hover { background:#33434b; }.corporate-site .floating-contact small { display:none; }
 @media(min-width:768px) and (max-width:1199px) {
-  .corporate-home .container { width:calc(100% - 64px); }.corporate-home .editorial-grid { gap:20px; }
-  .corporate-home .main-navigation { gap:20px; }.corporate-home .main-navigation .button { margin-left:0; }
+  .corporate-site .container { width:calc(100% - 64px); }.corporate-site .editorial-grid { gap:20px; }
+  .corporate-site .main-navigation { gap:20px; }.corporate-site .main-navigation .button { margin-left:0; }
   .editorial-hero-copy { padding-right:8px; }.editorial-hero h1 { font-size:clamp(49px,5.7vw,68px); }.editorial-hero-photo img { height:500px; }
   .editorial-hero-actions { gap:13px; }.editorial-hero-actions .editorial-link { font-size:11px; }
   .editorial-operations dl > div { padding-inline:16px; }.editorial-operations strong { font-size:12px; }
   .editorial-materials-consult { grid-column:8/-1; }.editorial-logistics-copy { grid-column:1/7; }.editorial-logistics-figure { grid-column:7/-1; }
   .editorial-region-list { grid-column:7/-1; }.editorial-coverage-copy { grid-column:1/6; }.editorial-closing .button { grid-column:10/-1; }
 }
-@media(max-width:959px) { .corporate-home .header-inner { min-height:82px; }.corporate-home .main-navigation { padding-bottom:22px; }.corporate-home .main-navigation .button { margin-left:0; }.editorial-logistics-specs > div { grid-template-columns:1fr; gap:7px; }.editorial-radius { flex-wrap:wrap; gap:13px; }.editorial-radius p { font-size:11px; } }
+@media(max-width:959px) { .corporate-site .header-inner { min-height:82px; }.corporate-site .main-navigation { padding-bottom:22px; }.corporate-site .main-navigation .button { margin-left:0; }.editorial-logistics-specs > div { grid-template-columns:1fr; gap:7px; }.editorial-radius { flex-wrap:wrap; gap:13px; }.editorial-radius p { font-size:11px; } }
 @media(max-width:767px) {
-  .corporate-home .container { width:calc(100% - 40px); }.corporate-home .editorial-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }.corporate-home .brand { width:195px; }.corporate-home h2 { font-size:42px; }
+  .corporate-site .container { width:calc(100% - 40px); }.corporate-site .editorial-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }.corporate-site .brand { width:195px; }.corporate-site h2 { font-size:42px; }
   .editorial-hero { padding-block:28px 32px; }.editorial-hero-copy,.editorial-hero-photo { grid-column:1/-1; }.editorial-hero-copy { padding:0; }.editorial-hero-copy .editorial-kicker { font-size:9px; margin-bottom:24px; letter-spacing:.08em; }
   .editorial-hero h1 { font-size:clamp(48px,10.5vw,74px); line-height:1.04; }.editorial-hero h1 span:first-child { margin-bottom:3px; }.editorial-hero-copy > p { margin-top:23px; font-size:13px; max-width:470px; }
   .editorial-hero-actions { gap:16px 18px; margin-top:24px; }.editorial-hero-actions .button { font-size:11px; padding-inline:14px; }.editorial-hero-actions .editorial-link { font-size:11px; gap:12px; }
@@ -124,7 +124,7 @@
   .editorial-product-grid { grid-template-columns:1fr; gap:38px; }.editorial-product:nth-child(even) { padding-top:0; }.editorial-product img { height:280px; }.editorial-product-copy h3 { font-size:32px; }
   .editorial-logistics { padding-block:50px; }.editorial-logistics-copy,.editorial-logistics-figure { grid-column:1/-1; }.editorial-logistics-copy h2 { margin-top:20px; }.editorial-logistics-copy > p { font-size:13px; }.editorial-logistics-specs { margin-block:24px; }.editorial-logistics-figure { margin-top:12px; }
   .editorial-coverage { padding-block:56px; }.editorial-coverage-copy,.editorial-region-list { grid-column:1/-1; }.editorial-region-list { margin-top:24px; }.editorial-region-list li { font-size:13px; }.editorial-radius { flex-wrap:nowrap; }.editorial-radius > strong { font-size:56px; }
-  .editorial-closing { padding-block:43px; }.editorial-closing .editorial-kicker,.editorial-closing .editorial-grid > div,.editorial-closing .button { grid-column:1/-1; }.editorial-closing .button { justify-self:start; }.corporate-home .editorial-closing h2 { font-size:40px; }
+  .editorial-closing { padding-block:43px; }.editorial-closing .editorial-kicker,.editorial-closing .editorial-grid > div,.editorial-closing .button { grid-column:1/-1; }.editorial-closing .button { justify-self:start; }.corporate-site .editorial-closing h2 { font-size:40px; }
   .editorial-footer { padding-top:38px; }.editorial-footer-brand { grid-column:1/-1; }.editorial-footer-navigation { grid-column:1/3; }.editorial-footer-contact { grid-column:3/-1; }.editorial-footer-contact > a,.editorial-footer-contact p { font-size:11px; }.editorial-footer-bottom { flex-direction:column; gap:9px; margin-top:32px; }
 }
 @media(max-width:359px) { .editorial-hero h1 { font-size:46px; }.editorial-hero-actions { flex-direction:column; align-items:start; }.editorial-hero-photo img { height:255px; }.editorial-radius { flex-wrap:wrap; }.editorial-footer-navigation,.editorial-footer-contact { grid-column:1/-1; } }

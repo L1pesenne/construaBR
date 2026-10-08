@@ -13,7 +13,7 @@ const categories = [...new Set(products.map(product => product.category))].sort(
   </form>
   <noscript><p class="catalog-help">Todos os materiais estão listados abaixo. Ative o JavaScript para pesquisar e combinar filtros.</p></noscript>
   <div class="catalog-results-bar"><p role="status" aria-live="polite" aria-atomic="true" data-results-count>{products.length} {products.some(product => product.status === 'demo') ? 'referências em demonstração' : 'materiais'}</p><button type="button" class="clear-filters" data-clear-filters hidden>Limpar filtros</button></div>
-  <div class="product-grid catalog-grid" id="catalog-results">
+  <div class="catalog-grid" id="catalog-results">
     {products.map(product => <div class="catalog-item" data-catalog-item data-category={product.category} data-search-text={`${product.name} ${product.category} ${product.description} ${product.detailedDescription}`}><ProductCard product={product} /></div>)}
   </div>
   <div class="catalog-empty" data-catalog-empty hidden><Icon name="search" size={36} /><h2>Nenhum material encontrado.</h2><p>Tente outro termo ou remova uma categoria para ampliar a busca.</p><button type="button" class="button button-outline" data-clear-empty>Limpar busca e filtros</button></div>
@@ -37,7 +37,8 @@ const categories = [...new Set(products.map(product => product.category))].sort(
         item.hidden = !match;
         if (match) visible++;
       }
-      count.textContent = `${visible} ${visible === 1 ? 'material encontrado' : 'materiais encontrados'}${search.value.trim() || categories.length ? ` de ${items.length}` : ''}`;
+      const demo = !!document.querySelector('.catalog-disclosure');
+      count.textContent = `${visible} ${demo ? (visible === 1 ? 'referência em demonstração' : 'referências em demonstração') : (visible === 1 ? 'material encontrado' : 'materiais encontrados')}${search.value.trim() || categories.length ? ` de ${items.length}` : ''}`;
       empty.hidden = visible !== 0;
       clear.hidden = !search.value && !categories.length;
       if (updateUrl) {

@@ -2,9 +2,16 @@
 
 Site institucional estático em Astro, TypeScript e Tailwind CSS. Homepage, catálogo, páginas institucionais e formulário de orçamento estão implementados, preservando a identidade visual existente. Não há e-commerce, cadastro, checkout, backend ou coleta de dados.
 
+## Catálogo corporativo premium — rodada 2
+
+Vitrine editorial com fotografias grandes, busca por termos, categorias combináveis, contagem de resultados, filtros na URL, estado vazio e limpeza. Fichas comerciais com fontes, especificações confirmadas ou pendência, logística, galeria preparada, relacionados e orçamento com material selecionado. Identidade, logo SVG original, dados e fotos preservados.
+
+Onze referências demonstrativas em desenvolvimento; zero produtos comercialmente aprovados. O build público apresenta catálogo em preparação e não gera páginas de materiais pendentes. Confira [Catálogo](docs/CATALOGO.md) para produtos, fontes e aprovação.
+
+Validação atual: check de 49 arquivos sem diagnósticos, build concluído, 13 testes aprovados; catálogo, 11 detalhes e 11 fotos conferidos por HTTP na prévia local. Para repetir: `npm run dev` e, em outro terminal, `node --experimental-strip-types scripts/verify-dev-catalog.mjs`. Navegador automatizado indisponível por falha do sandbox; revisão visual desktop/mobile ainda pendente nesta rodada. Sem deploy.
 ## Redesign corporativo — rodada 1
 
-Homepage reconstruída sobre o projeto existente: hero editorial em 12 colunas, fotografia original sem sobreposição, faixa operacional compacta, materiais com apresentação editorial, logística em contraste, regiões em lista alinhada, CTA comercial e rodapé corporativo. Paleta neutra, SVG oficial intacto e fontes locais existentes. Estilos exclusivos da homepage; páginas internas mantidas.
+Homepage reconstruída sobre o projeto existente: hero editorial em 12 colunas, fotografia original sem sobreposição, faixa operacional compacta, materiais com apresentação editorial, logística em contraste, regiões em lista alinhada, CTA comercial e rodapé corporativo. Paleta neutra, SVG oficial intacto e fontes locais existentes. Design system editorial compartilhado com o catálogo e os detalhes; demais páginas internas mantidas.
 
 Produtos na homepage exigem aprovação comercial. Enquanto o catálogo não possui itens confirmados, a página exibe fotografias de referência e consulta de disponibilidade. Catálogo demonstrativo, rotas e formulário permanecem funcionais. WhatsApp oficial: (21) 99547-1761; e-mail: atendimento@construabr.com.
 

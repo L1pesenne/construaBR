@@ -1,3 +1,25 @@
+# Catálogo corporativo premium — atualização atual
+
+A vitrine e os detalhes adotam o design editorial da homepage: fundo branco, grafite, laranja pontual, Barlow Condensed e Public Sans locais, divisórias finas, fotografias retangulares e ações sem cards arredondados ou sombras. Header, rodapé, botões, largura e grid são compartilhados por `corporate-site`; `corporate-home` continua identificando somente a homepage. Páginas institucionais restantes preservadas.
+
+`/produtos/`: introdução PORTFÓLIO DE MATERIAIS, busca, categorias combináveis com checkboxes nativos, contagem acessível, URL persistente, limpeza e estado vazio. Fotos grandes, categoria, título, descrição, status explícito, Ver detalhes e Solicitar orçamento. Duas colunas no desktop e uma no celular, filtros reorganizados no mobile. Sem preços ou carrinho.
+
+Detalhes: retorno ao catálogo, título e categoria, fotografia principal proporcional sem distorção, galeria preparada, descrição, fonte documental, especificações apenas confirmadas, unidade ou pendência, informações a granel/basculantes, prazo/cobertura condicionados e referências relacionadas. Orçamento segue para o formulário com o slug selecionado. WhatsApp oficial central: (21) 99547-1761.
+
+As onze referências abaixo continuam demonstrativas no desenvolvimento; nenhuma está comercialmente aprovada. Produção apresenta **0 materiais publicados**, mensagem de preparação, fotografia documental identificada e consulta à equipe. Nenhuma rota de produto pendente é gerada no build. Dados, originais, SVG oficial e WebPs existentes foram preservados.
+
+## Validação desta atualização
+
+- `npm run check`: 49 arquivos, zero erros, avisos ou sugestões.
+- `npm run build`: seis páginas, sem detalhes de produtos não aprovados.
+- `npm test`: 13 testes aprovados. Novo teste executa o controlador real em uma superfície DOM mínima: filtros pela URL, união de categorias, pesquisa, ausência de resultados, contagem demonstrativa, limpeza/foco e popstate. Não substitui navegador visual.
+- `node --experimental-strip-types scripts/verify-dev-catalog.mjs` com `npm run dev` ativo: catálogo, onze detalhes, onze imagens WebP e contato HTTP 200; links de orçamento identificam cada slug; um H1 por detalhe e design system compartilhado.
+- Revisão de código: breakpoints 1199/767/639 px, grids com minmax(0,1fr), imagens proporcionais, títulos com quebra, ações flexíveis, alvos de 44/48 px, estados de foco e redução de movimento.
+- A ferramenta de navegador falhou ao iniciar com `windows sandbox failed: helper_unknown_error: setup refresh had errors`. Não há screenshots novos ou confirmação visual em viewport real nesta rodada. Revisão visual desktop/mobile permanece pendente; capturas históricas não representam este redesign.
+- Nenhum dado de orçamento foi enviado; nenhum deploy realizado. Commit/push de código autorizados pelo proprietário.
+
+## Documentação anterior e manutenção
+
 # Catálogo — etapa 3
 
 ## Fontes e situação atual
@@ -29,17 +51,17 @@ Originais em `imagens/` permanecem intactos. Variantes WebP e manifesto ficam em
 
 `src/config/company.ts` centraliza WhatsApp. Número válido precisa conter DDI 55, DDD e telefone, somente dígitos. A mensagem identifica o nome exato do material. Sem número válido, o botão encaminha a `/contato/?material=slug#atendimento`, mantendo a seleção e exibindo indisponibilidade do canal. Slugs desconhecidos não são reproduzidos como material. Não há envio de formulário ou contato fictício.
 
-## Validação
+## Validação histórica — layout anterior
 
 `npm run check`, `npm run build`, `npm test`: 39 arquivos sem diagnósticos, build concluído e nove testes aprovados. Testes cobrem busca, filtros, proteção de publicação, orçamento codificado, IDs/rotas/fontes, recursos locais, SVG original e imagens WebP proporcionais. Build atual gera seis páginas institucionais, sem os onze detalhes pendentes.
 
 No desenvolvimento, onze rotas e imagens responderam HTTP 200. Navegador conferiu buscas com acentos/termos combinados, múltiplas categorias, nenhum resultado, limpeza, persistência por URL, checkbox via teclado e orçamento com material selecionado. Desktop 1440 px e mobile 390/320 px; sem rolagem horizontal nas páginas verificadas, sem erros/avisos de console observados. Capturas em `artifacts/screenshots/`. Não houve deploy.
 
-Galeria múltipla está preparada, mas não foi validada com conteúdo real por ausência de imagens adicionais confirmadas. O canal WhatsApp real depende do número oficial; geração da mensagem foi testada sem enviar mensagens.
+Galeria múltipla está preparada, mas não foi validada com conteúdo real por ausência de imagens adicionais confirmadas. Na época dessa validação, o WhatsApp ainda dependia do número oficial; geração da mensagem foi testada sem enviar mensagens.
 
 ## Aprovações necessárias
 
-Catálogo efetivamente comercializado; nomenclatura/variantes; descrições/aplicações; fotos e direitos de uso; especificações, granulometria e unidade/volume; número oficial de WhatsApp. Endereço/base, domínio e horários continuam pendentes na configuração institucional.
+Catálogo efetivamente comercializado; nomenclatura/variantes; descrições/aplicações; fotos e direitos de uso; especificações, granulometria e unidade/volume. WhatsApp e e-mail já foram confirmados pelo cliente. Endereço/base, domínio e horários continuam pendentes na configuração institucional.
 
 ## Integração com orçamento — etapa 4
 

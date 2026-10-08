@@ -4,12 +4,12 @@ import Icon from './Icon.astro';
 import LocalImage from './LocalImage.astro';
 import ContactButton from './ContactButton.astro';
 import { productRequestMessage } from '../lib/quotation';
-import { whatsappUrl } from '../config/company';
+import { canPublishProduct } from '../lib/catalog';
 interface Props { product: Product; }
 const { product } = Astro.props;
-const label = product.confirmation === 'supplier-reference' ? 'Referência de fornecedor · não aprovada' : product.confirmation === 'confirmed' ? 'Material confirmado pela ConstruaBR' : 'Demonstração · pendente de validação';
+const label = canPublishProduct(product) ? 'Confirmado pela ConstruaBR' : product.confirmation === 'supplier-reference' ? 'Referência de fornecedor · não aprovada' : 'Demonstração · pendente de validação';
 ---
-<article class="product-card">
-  <a class="product-image-link" href={`/produtos/${product.slug}/`} aria-label={`Consultar ${product.name}`}><LocalImage asset={product.image} alt={product.alt} /><span class="material-tag">{product.category}</span></a>
-  <div class="product-content"><span class="demo-label">{label}</span><h3><a href={`/produtos/${product.slug}/`}>{product.name}</a></h3><p>{product.description}</p><div class="product-card-actions"><a class="text-link" href={`/produtos/${product.slug}/`}>Consultar material<Icon name="arrow" size={20} /></a><ContactButton materialSlug={product.slug} message={productRequestMessage(product.name)} />{!whatsappUrl() && <span class="quotation-pending">WhatsApp pendente de configuração.</span>}</div></div>
+<article class="catalog-material">
+  <a class="catalog-material-photo" href={`/produtos/${product.slug}/`} aria-label={`Ver detalhes de ${product.name}`}><LocalImage asset={product.image} alt={product.alt} sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 959px) 44vw, 38vw" /></a>
+  <div class="catalog-material-copy"><span class="editorial-kicker">{product.category}</span><h3><a href={`/produtos/${product.slug}/`}>{product.name}</a></h3><p class="catalog-publication">{label}</p><p>{product.description}</p><div class="catalog-material-actions"><a class="editorial-link" href={`/produtos/${product.slug}/`}>Ver detalhes<Icon name="arrow" size={18} /></a><ContactButton variant="outline" materialSlug={product.slug} message={productRequestMessage(product.name)} /></div></div>
 </article>

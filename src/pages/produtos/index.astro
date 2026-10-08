@@ -1,8 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageIntro from '../../components/PageIntro.astro';
 import CatalogBrowser from '../../components/CatalogBrowser.astro';
 import ContactButton from '../../components/ContactButton.astro';
+import LocalImage from '../../components/LocalImage.astro';
 import { visibleProducts, hasDemoProducts } from '../../data/products';
 ---
-<BaseLayout title="Produtos" noindex={hasDemoProducts}><PageIntro eyebrow="Nossos materiais" title="A base da sua próxima obra." description="Explore as referências de materiais a granel. Busque pelo nome ou aplicação e combine categorias para encontrar o que sua obra precisa." /><section class="container page-content" aria-label="Catálogo de materiais">{hasDemoProducts && <p class="demo-notice"><strong>Vitrine de demonstração.</strong> Referências documentais pendentes de validação pela ConstruaBR. Não representam catálogo aprovado nem estoque confirmado.</p>}{visibleProducts.length ? <CatalogBrowser products={visibleProducts} /> : <div class="info-panel"><span class="status-note">Catálogo em preparação</span><h2>Vamos encontrar o material para sua obra.</h2><p>O catálogo aprovado está em preparação. Consulte as opções e a disponibilidade com a equipe. Fornecimento exclusivamente a granel, sem produtos ensacados ou fracionados.</p><ContactButton label="Consultar materiais" /></div>}</section></BaseLayout>
+<BaseLayout title="Materiais a granel" description="Consulte materiais a granel e solicite um orçamento à ConstruaBR Distribuidora. Disponibilidade e especificações sujeitas à confirmação comercial." noindex={hasDemoProducts} editorial>
+  <div class="container portfolio-page">
+    <header class="portfolio-intro editorial-grid"><div><span class="editorial-kicker">PORTFÓLIO DE MATERIAIS</span><h1>Materiais para<br />sua obra.</h1></div><p>Referências de materiais a granel para planejar seu pedido. Consulte a equipe para confirmar as opções, as especificações e a disponibilidade para sua obra.</p></header>
+    {hasDemoProducts && <p class="catalog-disclosure"><strong>Ambiente de desenvolvimento.</strong> As referências abaixo estão pendentes de aprovação comercial. Não representam catálogo aprovado ou estoque confirmado.</p>}
+    {visibleProducts.length ? <CatalogBrowser products={visibleProducts} /> : <section class="portfolio-pending editorial-grid" aria-labelledby="pending-title"><figure><LocalImage asset="pedrisco" alt="Fotografia de referência de pedrisco fornecida nos arquivos do projeto" sizes="(max-width: 767px) calc(100vw - 40px), 55vw" /><figcaption>Imagem documental de referência. Não comprova disponibilidade comercial.</figcaption></figure><div><span class="editorial-kicker">CATÁLOGO EM PREPARAÇÃO · 0 MATERIAIS PUBLICADOS</span><h2 id="pending-title">Seu pedido começa<br />com uma conversa.</h2><p>Os materiais aguardam validação pela ConstruaBR. Informe o material desejado e o local de entrega para consultar a equipe.</p><p>Fornecimento exclusivamente a granel, sem produtos ensacados ou fracionados.</p><ContactButton label="Consultar materiais" /></div></section>}
+    <aside class="portfolio-service"><span class="editorial-kicker">FORNECIMENTO E LOGÍSTICA</span><p>Materiais a granel. Transporte em caminhões basculantes, dimensionado conforme o volume do pedido.</p><a class="editorial-link" href="/entregas/">Condições de entrega →</a></aside>
+  </div>
+</BaseLayout>
