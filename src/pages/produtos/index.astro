@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CatalogBrowser from '../../components/CatalogBrowser.astro';
+import ContactButton from '../../components/ContactButton.astro';
+import { visibleProducts, hasDemoProducts } from '../../data/products';
+---
+<BaseLayout title="Produtos" noindex={hasDemoProducts}><PageIntro eyebrow="Nossos materiais" title="A base da sua próxima obra." description="Explore as referências de materiais a granel. Busque pelo nome ou aplicação e combine categorias para encontrar o que sua obra precisa." /><section class="container page-content" aria-label="Catálogo de materiais">{hasDemoProducts && <p class="demo-notice"><strong>Vitrine de demonstração.</strong> Referências documentais pendentes de validação pela ConstruaBR. Não representam catálogo aprovado nem estoque confirmado.</p>}{visibleProducts.length ? <CatalogBrowser products={visibleProducts} /> : <div class="info-panel"><span class="status-note">Catálogo em preparação</span><h2>Vamos encontrar o material para sua obra.</h2><p>O catálogo aprovado está em preparação. Consulte as opções e a disponibilidade com a equipe. Fornecimento exclusivamente a granel, sem produtos ensacados ou fracionados.</p><ContactButton label="Consultar materiais" /></div>}</section></BaseLayout>

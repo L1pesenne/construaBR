@@ -1,0 +1,12 @@
+---
+import ProductCard from './ProductCard.astro';
+import Icon from './Icon.astro';
+import ContactButton from './ContactButton.astro';
+import SectionTitle from './SectionTitle.astro';
+import { visibleProducts, hasDemoProducts } from '../data/products';
+---
+<section class="section materials" id="materiais" aria-labelledby="materials-title"><div class="container">
+  <SectionTitle id="materials-title" eyebrow="MATERIAIS EM FOCO" title="Materiais para cada etapa da sua obra."><a class="text-link" href="/produtos/">Ver todos os materiais <Icon name="arrow" size={20} /></a></SectionTitle>
+  {hasDemoProducts && <p class="demo-notice">Vitrine de demonstração. Os materiais abaixo são exemplos e dependem de validação comercial.</p>}
+  {visibleProducts.length ? <div class="product-grid">{visibleProducts.slice(0, 6).map(product => <ProductCard product={product} />)}</div> : <div class="empty-catalog"><Icon name="layers" size={36} /><div><h3>Cada obra começa com uma boa escolha.</h3><p>Nosso catálogo está em preparação. Consulte os materiais e a disponibilidade diretamente com a equipe.</p></div><ContactButton label="Consultar materiais" /></div>}
+</div></section>

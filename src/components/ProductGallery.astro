@@ -1,0 +1,29 @@
+---
+import type { Product } from '../data/products';
+import LocalImage from './LocalImage.astro';
+interface Props { product: Product; }
+const { product } = Astro.props;
+const images = [{ image: product.image, alt: product.alt, caption: 'Fotografia principal fornecida.' }, ...product.gallery];
+---
+<div class="product-gallery" data-product-gallery>
+  <figure class="gallery-main"><LocalImage asset={product.image} alt={product.alt} class="gallery-main-image" sizes="(max-width: 767px) calc(100vw - 40px), 50vw" priority /><figcaption data-gallery-caption>{product.image ? 'Fotografia fornecida do material. Disponibilidade sujeita à confirmação.' : 'Fotografia deste material em preparação.'}</figcaption></figure>
+  {images.length > 1 && <div class="gallery-thumbnails" aria-label="Selecionar fotografia">{images.map((image, index) => <button type="button" class="gallery-thumbnail" aria-label={`Ver fotografia ${index + 1} de ${product.name}`} aria-pressed={index === 0 ? 'true' : 'false'} data-gallery-caption-text={image.caption}><LocalImage asset={image.image} alt={image.alt} sizes="100px" /></button>)}</div>}
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-product-gallery]').forEach(gallery => {
+    const main = gallery.querySelector<HTMLImageElement>('.gallery-main-image');
+    const caption = gallery.querySelector('[data-gallery-caption]');
+    const buttons = gallery.querySelectorAll<HTMLButtonElement>('.gallery-thumbnail');
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const image = button.querySelector('img');
+      if (!main || !image) return;
+      main.src = image.src;
+      main.srcset = image.srcset;
+      main.alt = image.alt;
+      main.width = image.width;
+      main.height = image.height;
+      buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      if (caption) caption.textContent = button.dataset.galleryCaptionText ?? '';
+    }));
+  });
+</script>

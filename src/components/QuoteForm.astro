@@ -1,0 +1,102 @@
+---
+import { visibleProducts, hasDemoProducts } from '../data/products';
+import { company, whatsappUrl } from '../config/company';
+import { quoteLimits } from '../lib/quotation';
+import Icon from './Icon.astro';
+const available = Boolean(whatsappUrl());
+---
+<section class="quote-panel" id="atendimento" aria-labelledby="quote-title" data-quote data-number={available ? company.whatsapp : undefined}>
+  <span class="eyebrow">CONTE O QUE SUA OBRA PRECISA</span>
+  <h2 id="quote-title">Vamos preparar seu orçamento.</h2>
+  <p class="quote-lead">Preencha os dados, revise a mensagem e abra o WhatsApp. O envio será confirmado por você na conversa.</p>
+  {!available && <p class="channel-notice"><strong>WhatsApp em preparação.</strong> O número oficial ainda não foi informado. Você pode preparar a mensagem abaixo; o envio estará disponível assim que o canal for configurado.</p>}
+  <noscript><p class="channel-notice">Ative o JavaScript para preparar a mensagem de orçamento neste dispositivo. {available ? 'O botão de WhatsApp ao lado permite conversar diretamente com a equipe.' : 'O canal de WhatsApp ainda está pendente de configuração.'}</p></noscript>
+  <form data-quote-form hidden aria-describedby="quote-privacy" autocomplete="off">
+    <p class="form-help">Campos com * são obrigatórios.</p>
+    <div class="quote-fields">
+      <div class="form-field field-wide"><label for="quote-name">Nome do interessado *</label><input id="quote-name" name="name" required maxlength={quoteLimits.name} autocomplete="name" /><span class="field-error" id="error-name"></span></div>
+      <div class="form-field"><label for="quote-city">Cidade de entrega *</label><input id="quote-city" name="city" required maxlength={quoteLimits.city} autocomplete="address-level2" /><span class="field-error" id="error-city"></span></div>
+      <div class="form-field"><label for="quote-neighborhood">Bairro ou local de referência *</label><input id="quote-neighborhood" name="neighborhood" required maxlength={quoteLimits.neighborhood} /><span class="field-error" id="error-neighborhood"></span></div>
+      <div class="form-field field-wide"><label for="quote-material">Material desejado *</label><select id="quote-material" name="materialChoice" required><option value="">Selecione o material</option>{visibleProducts.map(product => <option value={product.slug} data-name={product.name}>{product.name}{product.status === 'demo' ? ' — demonstração' : ''}</option>)}<option value="other">Informar material / consultar disponibilidade</option></select><span class="field-error" id="error-materialChoice"></span>{hasDemoProducts && <small>As referências demonstrativas ainda dependem de aprovação da ConstruaBR.</small>}</div>
+      <div class="form-field field-wide" data-custom-material hidden><label for="quote-custom-material">Qual material você procura? *</label><input id="quote-custom-material" name="material" maxlength={quoteLimits.material} disabled /><span class="field-error" id="error-material"></span><small>A equipe confirmará se trabalha com o material informado.</small></div>
+      <div class="form-field"><label for="quote-quantity">Quantidade aproximada <span>(opcional)</span></label><input id="quote-quantity" name="quantity" maxlength={quoteLimits.quantity} /><span class="field-error" id="error-quantity"></span></div>
+      <div class="form-field"><label for="quote-unit">Unidade de referência <span>(opcional)</span></label><input id="quote-unit" name="unit" maxlength={quoteLimits.unit} /><span class="field-error" id="error-unit"></span></div>
+      <p class="form-help field-wide">Ainda não sabe a quantidade? Deixe em branco e explique sua necessidade nas observações. Volume e unidade serão alinhados com a equipe.</p>
+      <div class="form-field field-wide"><label for="quote-notes">Observações <span>(opcional)</span></label><textarea id="quote-notes" name="notes" rows="4" maxlength={quoteLimits.notes} placeholder="Conte sobre a obra e as condições de acesso para o basculante."></textarea><span class="field-error" id="error-notes"></span></div>
+    </div>
+    <p id="quote-privacy" class="form-help">Este site não salva os dados do formulário nem os envia a um servidor. Ao abrir o WhatsApp, os dados preenchidos compõem a mensagem enviada ao serviço.</p>
+    <div class="quote-actions"><button type="submit" class="button button-orange"><Icon name="chat" size={20} />Revisar orçamento<Icon name="arrow" size={18} /></button><button type="reset" class="clear-filters">Limpar dados</button></div>
+    <p class="form-feedback" role="status" aria-live="polite" data-form-feedback></p>
+  </form>
+  <section class="quote-review" data-quote-review hidden aria-labelledby="review-title" tabindex="-1">
+    <h3 id="review-title">Sua mensagem está pronta para revisão.</h3>
+    <pre data-quote-message></pre>
+    <p class="form-help">Para corrigir alguma informação, edite os campos acima e revise novamente.</p>
+    <a data-quote-open class="button button-green" hidden target="_blank" rel="noopener noreferrer"><Icon name="chat" size={20} />Abrir WhatsApp<Icon name="arrow" size={18} /></a>
+    <p data-quote-unavailable hidden class="channel-notice">Mensagem preparada. O WhatsApp oficial ainda não está configurado; nenhum dado foi enviado.</p>
+  </section>
+</section>
+<script>
+  import { buildWhatsAppUrl, quoteRequestMessage, validateQuote, type QuoteRequest } from '../lib/quotation';
+  const root = document.querySelector<HTMLElement>('[data-quote]');
+  if (root) {
+    const form = root.querySelector<HTMLFormElement>('[data-quote-form]')!;
+    const choice = form.querySelector<HTMLSelectElement>('[name="materialChoice"]')!;
+    const custom = form.querySelector<HTMLInputElement>('[name="material"]')!;
+    const customWrap = form.querySelector<HTMLElement>('[data-custom-material]')!;
+    const review = root.querySelector<HTMLElement>('[data-quote-review]')!;
+    const open = root.querySelector<HTMLAnchorElement>('[data-quote-open]')!;
+    const feedback = form.querySelector<HTMLElement>('[data-form-feedback]')!;
+    function updateMaterial() {
+      const other = choice.value === 'other';
+      customWrap.hidden = !other; custom.disabled = !other; custom.required = other;
+    }
+    function clearReview() {
+      review.hidden = true; open.removeAttribute('href'); open.hidden = true;
+      root!.querySelector('[data-quote-message]')!.textContent = '';
+      feedback.textContent = '';
+    }
+    function clearErrors() {
+      form.querySelectorAll('[aria-invalid]').forEach(el => { el.removeAttribute('aria-invalid'); el.removeAttribute('aria-describedby'); });
+      form.querySelectorAll('.field-error').forEach(el => { el.textContent = ''; });
+    }
+    form.addEventListener('input', () => { clearReview(); clearErrors(); });
+    choice.addEventListener('change', () => { updateMaterial(); clearReview(); clearErrors(); });
+    form.addEventListener('reset', event => {
+      event.preventDefault();
+      form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea').forEach(input => { input.value = ''; });
+      choice.value = '';
+      updateMaterial(); clearReview(); clearErrors();
+      form.querySelector<HTMLInputElement>('[name="name"]')!.focus();
+    });
+    form.addEventListener('submit', event => {
+      event.preventDefault(); clearReview(); clearErrors();
+      const value = (name: string) => (form.elements.namedItem(name) as HTMLInputElement).value;
+      const data: QuoteRequest = {
+        name: value('name'), city: value('city'), neighborhood: value('neighborhood'),
+        material: choice.value === 'other' ? custom.value : choice.selectedOptions[0]?.dataset.name ?? '',
+        quantity: value('quantity'), unit: value('unit'), notes: value('notes'),
+      };
+      const errors: Record<string, string> = validateQuote(data);
+      if (!choice.value) { delete errors.material; errors.materialChoice = 'Selecione ou informe o material desejado.'; }
+      let first: HTMLElement | undefined;
+      for (const [field, message] of Object.entries(errors)) {
+        const input = form.elements.namedItem(field) as HTMLElement;
+        const error = form.querySelector(`#error-${field}`)!;
+        input.setAttribute('aria-invalid', 'true'); input.setAttribute('aria-describedby', error.id);
+        error.textContent = message; first ??= input;
+      }
+      if (first) { feedback.textContent = 'Confira os campos indicados antes de continuar.'; first.focus(); return; }
+      const message = quoteRequestMessage(data);
+      root!.querySelector('[data-quote-message]')!.textContent = message;
+      const url = buildWhatsAppUrl(root!.dataset.number ?? null, message);
+      if (url) { open.href = url; open.hidden = false; }
+      root!.querySelector<HTMLElement>('[data-quote-unavailable]')!.hidden = Boolean(url);
+      review.hidden = false; review.focus();
+      feedback.textContent = 'Mensagem preparada. Confira os dados abaixo.';
+    });
+    const slug = new URLSearchParams(location.search).get('material');
+    if (slug && Array.from(choice.options).some(option => option.value === slug && option.dataset.name)) choice.value = slug;
+    updateMaterial(); form.noValidate = true; form.hidden = false;
+  }
+</script>

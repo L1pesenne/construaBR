@@ -1,0 +1,15 @@
+---
+import type { Product } from '../data/products';
+import Icon from './Icon.astro';
+import LocalImage from './LocalImage.astro';
+import ContactButton from './ContactButton.astro';
+import { productRequestMessage } from '../lib/quotation';
+import { whatsappUrl } from '../config/company';
+interface Props { product: Product; }
+const { product } = Astro.props;
+const label = product.confirmation === 'supplier-reference' ? 'Referência de fornecedor · não aprovada' : product.confirmation === 'confirmed' ? 'Material confirmado pela ConstruaBR' : 'Demonstração · pendente de validação';
+---
+<article class="product-card">
+  <a class="product-image-link" href={`/produtos/${product.slug}/`} aria-label={`Consultar ${product.name}`}><LocalImage asset={product.image} alt={product.alt} /><span class="material-tag">{product.category}</span></a>
+  <div class="product-content"><span class="demo-label">{label}</span><h3><a href={`/produtos/${product.slug}/`}>{product.name}</a></h3><p>{product.description}</p><div class="product-card-actions"><a class="text-link" href={`/produtos/${product.slug}/`}>Consultar material<Icon name="arrow" size={20} /></a><ContactButton materialSlug={product.slug} message={productRequestMessage(product.name)} />{!whatsappUrl() && <span class="quotation-pending">WhatsApp pendente de configuração.</span>}</div></div>
+</article>

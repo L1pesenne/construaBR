@@ -1,0 +1,8 @@
+---
+interface Props { light?: boolean; }
+const { light = false } = Astro.props;
+---
+<a href="/" class:list={['brand', { 'brand-light': light }]} aria-label="ConstruaBR Distribuidora — início">
+  <img src="/images/brand/construabr.svg" alt="ConstruaBR" width="718" height="108" />
+  <span class="brand-subtitle">DISTRIBUIDORA</span>
+</a>

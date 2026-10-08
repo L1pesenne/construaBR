@@ -1,0 +1,239 @@
+[
+  {
+    "key": "areia-de-aterro",
+    "source": "imagens/Areia de Aterro.jpg",
+    "sourceWidth": 489,
+    "sourceHeight": 277,
+    "sourceBytes": 54964,
+    "variants": [
+      {
+        "src": "/images/materials/areia-de-aterro-480.webp",
+        "width": 480,
+        "height": 272,
+        "bytes": 35698
+      },
+      {
+        "src": "/images/materials/areia-de-aterro-489.webp",
+        "width": 489,
+        "height": 277,
+        "bytes": 37398
+      }
+    ]
+  },
+  {
+    "key": "areia-grama-sintetica",
+    "source": "imagens/Areia Fina para Campo de Grama Sintética.jpg",
+    "sourceWidth": 565,
+    "sourceHeight": 519,
+    "sourceBytes": 104009,
+    "variants": [
+      {
+        "src": "/images/materials/areia-grama-sintetica-480.webp",
+        "width": 480,
+        "height": 441,
+        "bytes": 53388
+      },
+      {
+        "src": "/images/materials/areia-grama-sintetica-565.webp",
+        "width": 565,
+        "height": 519,
+        "bytes": 65980
+      }
+    ]
+  },
+  {
+    "key": "areia-lavada-fina-branca",
+    "source": "imagens/Areia Lavada Fina Branca.jpg",
+    "sourceWidth": 807,
+    "sourceHeight": 1121,
+    "sourceBytes": 239433,
+    "variants": [
+      {
+        "src": "/images/materials/areia-lavada-fina-branca-480.webp",
+        "width": 480,
+        "height": 667,
+        "bytes": 69924
+      },
+      {
+        "src": "/images/materials/areia-lavada-fina-branca-807.webp",
+        "width": 807,
+        "height": 1121,
+        "bytes": 132344
+      }
+    ]
+  },
+  {
+    "key": "areia-lavada-fina",
+    "source": "imagens/Areia Lavada Fina.jpg",
+    "sourceWidth": 918,
+    "sourceHeight": 954,
+    "sourceBytes": 339713,
+    "variants": [
+      {
+        "src": "/images/materials/areia-lavada-fina-480.webp",
+        "width": 480,
+        "height": 499,
+        "bytes": 81416
+      },
+      {
+        "src": "/images/materials/areia-lavada-fina-918.webp",
+        "width": 918,
+        "height": 954,
+        "bytes": 224596
+      }
+    ]
+  },
+  {
+    "key": "areia-lavada",
+    "source": "imagens/areia lavada.jpg",
+    "sourceWidth": 1570,
+    "sourceHeight": 1358,
+    "sourceBytes": 563990,
+    "variants": [
+      {
+        "src": "/images/materials/areia-lavada-480.webp",
+        "width": 480,
+        "height": 415,
+        "bytes": 53992
+      },
+      {
+        "src": "/images/materials/areia-lavada-960.webp",
+        "width": 960,
+        "height": 830,
+        "bytes": 154154
+      },
+      {
+        "src": "/images/materials/areia-lavada-1560.webp",
+        "width": 1560,
+        "height": 1349,
+        "bytes": 286092
+      }
+    ]
+  },
+  {
+    "key": "areia-quadra-esportiva",
+    "source": "imagens/Areia para Quadra Esportiva.jpg",
+    "sourceWidth": 1009,
+    "sourceHeight": 1217,
+    "sourceBytes": 405413,
+    "variants": [
+      {
+        "src": "/images/materials/areia-quadra-esportiva-480.webp",
+        "width": 480,
+        "height": 579,
+        "bytes": 81868
+      },
+      {
+        "src": "/images/materials/areia-quadra-esportiva-960.webp",
+        "width": 960,
+        "height": 1158,
+        "bytes": 243338
+      }
+    ]
+  },
+  {
+    "key": "areia-relavada-amarela",
+    "source": "imagens/Areia Relavada amarela.jpg",
+    "sourceWidth": 899,
+    "sourceHeight": 1599,
+    "sourceBytes": 382340,
+    "variants": [
+      {
+        "src": "/images/materials/areia-relavada-amarela-480.webp",
+        "width": 480,
+        "height": 854,
+        "bytes": 154390
+      },
+      {
+        "src": "/images/materials/areia-relavada-amarela-899.webp",
+        "width": 899,
+        "height": 1599,
+        "bytes": 368696
+      }
+    ]
+  },
+  {
+    "key": "areia-relavada-branca",
+    "source": "imagens/Areia Relavada Branca.jpg",
+    "sourceWidth": 899,
+    "sourceHeight": 1599,
+    "sourceBytes": 292231,
+    "variants": [
+      {
+        "src": "/images/materials/areia-relavada-branca-480.webp",
+        "width": 480,
+        "height": 854,
+        "bytes": 116056
+      },
+      {
+        "src": "/images/materials/areia-relavada-branca-899.webp",
+        "width": 899,
+        "height": 1599,
+        "bytes": 256642
+      }
+    ]
+  },
+  {
+    "key": "areia-relavada-creme",
+    "source": "imagens/Areia Relavada creme.jpg",
+    "sourceWidth": 960,
+    "sourceHeight": 1280,
+    "sourceBytes": 473601,
+    "variants": [
+      {
+        "src": "/images/materials/areia-relavada-creme-480.webp",
+        "width": 480,
+        "height": 640,
+        "bytes": 144226
+      },
+      {
+        "src": "/images/materials/areia-relavada-creme-960.webp",
+        "width": 960,
+        "height": 1280,
+        "bytes": 453278
+      }
+    ]
+  },
+  {
+    "key": "areola",
+    "source": "imagens/Areola.jpg",
+    "sourceWidth": 590,
+    "sourceHeight": 712,
+    "sourceBytes": 197567,
+    "variants": [
+      {
+        "src": "/images/materials/areola-480.webp",
+        "width": 480,
+        "height": 579,
+        "bytes": 99418
+      },
+      {
+        "src": "/images/materials/areola-590.webp",
+        "width": 590,
+        "height": 712,
+        "bytes": 140934
+      }
+    ]
+  },
+  {
+    "key": "pedrisco",
+    "source": "imagens/Pedrisco.jpg",
+    "sourceWidth": 900,
+    "sourceHeight": 1600,
+    "sourceBytes": 642873,
+    "variants": [
+      {
+        "src": "/images/materials/pedrisco-480.webp",
+        "width": 480,
+        "height": 853,
+        "bytes": 207924
+      },
+      {
+        "src": "/images/materials/pedrisco-900.webp",
+        "width": 900,
+        "height": 1600,
+        "bytes": 618928
+      }
+    ]
+  }
+]

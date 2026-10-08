@@ -1,0 +1,6 @@
+---
+import { whatsappUrl } from '../config/company';
+import Icon from './Icon.astro';
+const url = whatsappUrl();
+---
+<a class="floating-contact" href={url ?? '/contato/#atendimento'} target={url ? '_blank' : undefined} rel={url ? 'noopener noreferrer' : undefined} aria-label={url ? 'Conversar com a ConstruaBR no WhatsApp (abre em nova aba)' : 'Preparar orçamento — WhatsApp pendente de configuração'}><Icon name="chat" size={24} /><span>{url ? 'WhatsApp' : 'Orçamento'}<small>{url ? 'Fale com a equipe' : 'WhatsApp em breve'}</small></span></a>

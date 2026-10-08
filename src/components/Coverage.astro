@@ -1,0 +1,7 @@
+---
+import ContactButton from './ContactButton.astro';
+import Icon from './Icon.astro';
+import { regions } from '../data/navigation';
+import { company } from '../config/company';
+---
+<section class="section coverage" aria-labelledby="coverage-title"><div class="container coverage-grid"><div class="coverage-graphic" aria-hidden="true"><div class="radius-ring ring-outer"></div><div class="radius-ring ring-middle"></div><div class="radius-ring ring-inner"></div><div class="radius-label"><Icon name="pin" size={34} /><strong>{company.serviceRadiusKm}<span>km</span></strong><span>RAIO MÁXIMO</span></div><span class="graphic-caption">DA NOSSA BASE ATÉ SUA OBRA</span></div><div><span class="eyebrow">PERTO DE QUEM CONSTRÓI</span><h2 id="coverage-title">Sua obra no RJ.<br />Nossa atenção em cada entrega.</h2><p>Atendimento em um raio de até {company.serviceRadiusKm} km da base operacional. Consulte a possibilidade de entrega para o endereço da sua obra.</p><ul class="region-list">{regions.map(region => <li><Icon name="pin" size={15} />{region}</li>)}</ul><p class="coverage-note">As regiões acima são referências de atendimento. A cobertura depende da distância da base e das condições operacionais; não abrange automaticamente todo o município.</p><ContactButton label="Consultar minha região" message="Olá! Gostaria de consultar o atendimento para a região da minha obra." variant="outline" /></div></div></section>

@@ -1,0 +1,4 @@
+---
+import { faq } from '../data/faq';
+---
+<section class="section faq-section" aria-labelledby="faq-title"><div class="container faq-grid"><div><span class="eyebrow">ANTES DE PEDIR</span><h2 id="faq-title">Dúvidas da obra.<br />Respostas diretas.</h2><p>Entenda o atendimento, o fornecimento e as condições de entrega.</p></div><div class="faq-list">{faq.map(item => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div></section>

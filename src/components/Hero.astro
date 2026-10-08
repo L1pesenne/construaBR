@@ -1,0 +1,23 @@
+---
+import ContactButton from './ContactButton.astro';
+import Icon from './Icon.astro';
+import LocalImage from './LocalImage.astro';
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-heading-line"><span>CONSTRUABR DISTRIBUIDORA</span><span>RIO DE JANEIRO <Icon name="pin" size={14} /></span></div>
+    <div class="hero-panel">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="orange-line"></span> A BASE DE UMA BOA OBRA</span>
+        <h1 id="hero-title">Materiais a granel<br />para sua obra,<br /><span>com entrega ágil <span class="hero-location">no RJ.</span></span></h1>
+        <p class="hero-description">Distribuição de materiais de construção com transporte em caminhões basculantes e atendimento personalizado.</p>
+        <div class="hero-actions"><ContactButton /><a class="button button-outline" href="#materiais">Explorar materiais<Icon name="arrow" size={18} /></a></div>
+        <div class="hero-footnote"><Icon name="check" size={18} /><span>Atendimento direto. Do orçamento à entrega.</span></div>
+      </div>
+      <figure class="hero-photo">
+        <LocalImage asset="areia-lavada" alt="Fotografia fornecida de areia a granel, com textura clara vista de perto" sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 959px) 42vw, 640px" priority />
+        <figcaption><span>DO MATERIAL À SUA OBRA</span><strong>Uma base para construir.</strong><span class="hero-photo-note">Fotografia de referência · catálogo sujeito à confirmação.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

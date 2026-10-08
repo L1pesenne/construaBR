@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Coverage from '../components/Coverage.astro';
+import Logistics from '../components/Logistics.astro';
+import ContactButton from '../components/ContactButton.astro';
+import { company } from '../config/company';
+---
+<BaseLayout title="Entregas e regiões atendidas" description="Transporte de materiais a granel por basculantes, com prazo de 24 horas após aprovação e cobertura condicionada ao raio de 120 km.">
+  <PageIntro eyebrow="LOGÍSTICA E ATENDIMENTO" title="O caminho até a sua obra." description="O volume define o transporte. O endereço e as condições de acesso ajudam a planejar cada entrega." />
+  <Logistics />
+  <section class="section delivery-process"><div class="container"><span class="eyebrow">ANTES DE CONFIRMAR A ENTREGA</span><h2>Três informações fazem a diferença.</h2><ol class="steps"><li><div class="step-top"><span class="step-number">01</span></div><h3>Material e volume.</h3><p>Informe o material e uma estimativa da quantidade. O caminhão basculante será dimensionado conforme o pedido.</p></li><li><div class="step-top"><span class="step-number">02</span></div><h3>Endereço e acesso.</h3><p>Envie cidade, bairro ou referência e as condições de acesso. A equipe confirma a cobertura efetiva e a viabilidade para o veículo.</p></li><li><div class="step-top"><span class="step-number">03</span></div><h3>Aprovação pelo WhatsApp.</h3><p>O prazo de {company.deliveryHours} horas começa após a aprovação do pedido, conforme as condições operacionais. O orçamento, por si só, não confirma o pedido.</p></li></ol><div class="delivery-callout"><p>Atendimento limitado a {company.serviceRadiusKm} km da base. Consulte a disponibilidade para o endereço da sua obra antes de combinar a entrega.</p><ContactButton label="Consultar minha entrega" /></div></div></section>
+  <Coverage />
+</BaseLayout>

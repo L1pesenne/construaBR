@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import { company } from '../config/company';
+const highlights = [
+  { icon: 'layers', title: 'Exclusivamente a granel', detail: 'Sem ensacados ou fracionados' },
+  { icon: 'truck', title: 'Caminhões basculantes', detail: 'Conforme o volume do pedido' },
+  { icon: 'clock', title: `Entrega em ${company.deliveryHours} horas*`, detail: 'Após aprovação do pedido' },
+  { icon: 'pin', title: `Raio máximo de ${company.serviceRadiusKm} km`, detail: 'Atendimento sujeito à distância' },
+];
+---
+<section class="benefits" aria-label="Diferenciais da ConstruaBR">
+  <div class="container benefits-grid">
+    {highlights.map(highlight => <div><Icon name={highlight.icon} size={30} /><p><strong>{highlight.title}</strong><span>{highlight.detail}</span></p></div>)}
+  </div>
+  <div class="container"><p class="benefits-condition">* {company.deliveryConditions}</p></div>
+</section>

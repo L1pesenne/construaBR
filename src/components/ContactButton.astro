@@ -1,0 +1,11 @@
+---
+import { whatsappUrl } from '../config/company';
+import Icon from './Icon.astro';
+interface Props { label?: string; message?: string; variant?: 'orange' | 'green' | 'outline'; materialSlug?: string; id?: string; direct?: boolean; }
+const { label = 'Solicitar orçamento', message, variant = 'orange', materialSlug, id, direct = false } = Astro.props;
+const url = direct ? whatsappUrl(message) : null;
+const fallback = materialSlug ? `/contato/?material=${encodeURIComponent(materialSlug)}#atendimento` : '/contato/#atendimento';
+---
+<a id={id} class:list={['button', `button-${variant}`]} href={url ?? fallback} target={url ? '_blank' : undefined} rel={url ? 'noopener noreferrer' : undefined}>
+  <Icon name="chat" size={20} /><span>{label}</span><Icon name="arrow" size={18} />
+</a>

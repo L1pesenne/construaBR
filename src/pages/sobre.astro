@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import ContactButton from '../components/ContactButton.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import DeliveryHighlights from '../components/DeliveryHighlights.astro';
+import LocalImage from '../components/LocalImage.astro';
+import { products } from '../data/products';
+import { canPublishProduct } from '../lib/catalog';
+const approved = products.filter(canPublishProduct);
+---
+<BaseLayout title="Sobre a ConstruaBR" description="Conheça a ConstruaBR Distribuidora: materiais de construção a granel no Rio de Janeiro, atendimento direto e transporte por basculantes.">
+  <PageIntro eyebrow="SOBRE A CONSTRUABR" title="Da base à sua obra." description="Distribuição de materiais de construção a granel no Rio de Janeiro. Material, transporte e atendimento conectados à necessidade de cada pedido." />
+  <section class="container institutional-grid page-content" aria-labelledby="about-title">
+    <div class="institutional-copy"><span class="eyebrow">NOSSO TRABALHO</span><h2 id="about-title">A obra começa com uma boa conversa.</h2><p>A ConstruaBR Distribuidora atua no fornecimento de materiais de construção exclusivamente a granel. O atendimento com Alessandro reúne as informações do material e do local de entrega para alinhar as condições do pedido.</p><p>O transporte é realizado em caminhões basculantes, dimensionados conforme o volume solicitado. A viabilidade da entrega é conferida para o endereço da obra.</p><p>Não trabalhamos com materiais ensacados ou fracionados. Cada solicitação é tratada diretamente, com confirmação de disponibilidade, volume e condições operacionais.</p><ContactButton /></div>
+    <figure class="about-material"><LocalImage asset="areia-lavada" alt="Fotografia de areia lavada fornecida nos arquivos da ConstruaBR" sizes="(max-width: 767px) calc(100vw - 40px), 45vw" priority /><figcaption>Referência de material fornecida no projeto. A fotografia não representa instalações ou estoque confirmado.</figcaption></figure>
+  </section>
+  <DeliveryHighlights />
+  <section class="section"><div class="container institutional-grid"><div><span class="eyebrow">MATERIAIS A GRANEL</span><h2>O material certo começa pela consulta.</h2></div><div class="institutional-copy">{approved.length ? <p>Consulte nosso catálogo de {approved.map(product => product.name).join(', ')}. A equipe confirma disponibilidade e condições para cada pedido.</p> : <p>O catálogo comercial está em validação. Informe o material que sua obra precisa para consultar a disponibilidade com a equipe.</p>}<p>As referências documentais de areias e agregados orientam a organização do catálogo. A confirmação de cada material, de suas características e aplicações faz parte da revisão comercial.</p><a class="button button-outline" href="/produtos/">Conhecer os materiais →</a></div></div></section>
+  <HowItWorks />
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+import Icon from './Icon.astro';
+import { company } from '../config/company';
+import SectionTitle from './SectionTitle.astro';
+const steps = [
+  { icon: 'layers', title: 'Escolha o material.', text: 'Defina o que sua obra precisa. A equipe confirma a disponibilidade e o volume do pedido.' },
+  { icon: 'chat', title: 'Solicite seu orçamento.', text: 'Converse com a equipe pelo WhatsApp. Informe o material, a quantidade e o local da entrega.' },
+  { icon: 'truck', title: 'Prepare a sua obra.', text: `Após a aprovação pelo WhatsApp, receba em ${company.deliveryHours} horas, conforme as condições operacionais e de acesso ao local.` },
+];
+---
+<section class="section process" aria-labelledby="process-title"><div class="container"><SectionTitle id="process-title" eyebrow="SIMPLES, DO INÍCIO À ENTREGA" title="Sua obra não precisa de complicação."><p>Você cuida do projeto.<br />A gente conversa sobre o material.</p></SectionTitle><ol class="steps">{steps.map((step, i) => <li><div class="step-top"><span class="step-number">0{i + 1}</span><Icon name={step.icon} size={30} /></div><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol></div></section>

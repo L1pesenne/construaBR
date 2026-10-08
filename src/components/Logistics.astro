@@ -1,0 +1,25 @@
+---
+import ContactButton from './ContactButton.astro';
+import Icon from './Icon.astro';
+import { company } from '../config/company';
+---
+<section class="section logistics" aria-labelledby="logistics-title">
+  <div class="container logistics-grid">
+    <div class="logistics-copy">
+      <span class="eyebrow">DA ESCOLHA DO MATERIAL À ENTREGA</span>
+      <h2 id="logistics-title">O volume é seu.<br />O transporte acompanha.</h2>
+      <p>O material segue a granel, exclusivamente em caminhões basculantes. O veículo é dimensionado conforme o volume do seu pedido.</p>
+      <ul class="logistics-conditions">
+        <li><Icon name="truck" size={24} /><div><strong>Um pedido, um transporte adequado.</strong><span>Informe a quantidade e as condições de acesso à obra durante o orçamento.</span></div></li>
+        <li><Icon name="clock" size={24} /><div><strong>{company.deliveryHours} horas após aprovação.</strong><span>A aprovação é feita pelo WhatsApp. O prazo está sujeito às condições operacionais da empresa.</span></div></li>
+        <li><Icon name="pin" size={24} /><div><strong>Entrega confirmada para o seu endereço.</strong><span>A distância deve respeitar o raio máximo de {company.serviceRadiusKm} km da base operacional.</span></div></li>
+      </ul>
+      <ContactButton label="Conversar sobre minha entrega" variant="outline" message="Olá! Gostaria de consultar o transporte e as condições de entrega para minha obra." />
+    </div>
+    <figure class="logistics-visual">
+      <div class="logistics-visual-label"><Icon name="truck" size={20} /><span>TRANSPORTE EXCLUSIVO POR BASCULANTES</span></div>
+      <img src="/images/illustrations/basculante.svg" alt="Ilustração conceitual de caminhão basculante transportando material a granel" width="800" height="640" loading="lazy" decoding="async" />
+      <figcaption>Ilustração conceitual. Fotografia do transporte em preparação.</figcaption>
+    </figure>
+  </div>
+</section>
