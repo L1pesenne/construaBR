@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContact from '../components/FloatingContact.astro';
+import EditorialFooter from '../components/EditorialFooter.astro';
 import { company } from '../config/company';
 import '@fontsource/barlow-condensed/latin-600.css';
 import '@fontsource/barlow-condensed/latin-700.css';
@@ -12,8 +13,9 @@ import '../styles/global.css';
 import '../styles/home.css';
 import '../styles/catalog.css';
 import '../styles/institutional.css';
-interface Props { title: string; description?: string; noindex?: boolean; }
-const { title, description = 'Distribuição de materiais de construção exclusivamente a granel no Rio de Janeiro. Transporte em caminhões basculantes e orçamento pelo WhatsApp.', noindex = false } = Astro.props;
+import '../styles/editorial.css';
+interface Props { title: string; description?: string; noindex?: boolean; editorial?: boolean; }
+const { title, description = 'Distribuição de materiais de construção exclusivamente a granel no Rio de Janeiro. Transporte em caminhões basculantes e orçamento pelo WhatsApp.', noindex = false, editorial = false } = Astro.props;
 const canonical = company.domain ? new URL(Astro.url.pathname, company.domain).href : undefined;
 ---
 <!doctype html>
@@ -33,5 +35,5 @@ const canonical = company.domain ? new URL(Astro.url.pathname, company.domain).h
     {canonical && <meta property="og:url" content={canonical} />}
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
   </head>
-  <body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo" tabindex="-1"><slot /></main><Footer /><FloatingContact /></body>
+  <body class:list={{ 'corporate-home': editorial }}><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo" tabindex="-1"><slot /></main>{editorial ? <EditorialFooter /> : <Footer />}<FloatingContact /></body>
 </html>

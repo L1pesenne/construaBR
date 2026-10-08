@@ -28,6 +28,7 @@ test('produção não publica os exemplos de materiais', () => {
   const catalog = readFileSync(join(dist, 'produtos/index.html'), 'utf8');
   const contact = readFileSync(join(dist, 'contato/index.html'), 'utf8');
   for (const product of products.filter(item => !canPublishProduct(item))) {
+    assert.ok(!home.includes(`/produtos/${product.slug}/`), 'Homepage não deve oferecer referência não aprovada');
     assert.ok(!catalog.includes(`/produtos/${product.slug}/`));
     assert.ok(!contact.includes(`"slug":"${product.slug}"`), 'Contato público não deve carregar referências não aprovadas');
   }

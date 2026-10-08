@@ -1,0 +1,6 @@
+---
+import { company } from '../config/company';
+import { regions } from '../data/navigation';
+import ContactButton from './ContactButton.astro';
+---
+<section class="editorial-coverage" aria-labelledby="home-coverage-title"><div class="container editorial-grid"><div class="editorial-coverage-copy"><span class="editorial-kicker">ÁREA DE ATENDIMENTO</span><h2 id="home-coverage-title">Rio de Janeiro.<br />Consulta por endereço.</h2><p>A cobertura efetiva é confirmada para cada solicitação. Informe a cidade, o bairro e as condições de acesso à sua obra.</p><div class="editorial-radius"><strong>{company.serviceRadiusKm}<span> km</span></strong><p>Raio máximo a partir da base operacional.<br />Atendimento sujeito às condições de entrega.</p></div><ContactButton label="Consultar minha região" variant="outline" /></div><div class="editorial-region-list"><span class="editorial-kicker">REGIÕES EM DESTAQUE</span><ul>{regions.map(region => <li>{region}<span aria-hidden="true">↗</span></li>)}</ul><p>As regiões são referências de atendimento. A cobertura não abrange automaticamente todo o município: depende da distância da base e das condições operacionais.</p></div></div></section>

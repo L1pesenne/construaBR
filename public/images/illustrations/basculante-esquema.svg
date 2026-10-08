@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" fill="none">
+  <rect width="900" height="520" fill="#172126"/>
+  <g stroke="#394b54" stroke-width="1">
+    <path d="M46 48h808M46 470h808M46 48v422M854 48v422"/>
+    <path d="M64 412h772" stroke-dasharray="4 7"/>
+  </g>
+  <g stroke="#abb9bf" stroke-width="2.4" stroke-linejoin="round">
+    <path d="M112 189h433l-25 143H147z" fill="#26353c"/>
+    <path d="M114 203h426M131 264h399M185 190l18 142M286 190l10 142M387 190v142M482 190l-10 142"/>
+    <path d="M163 341h535v35H163z"/>
+    <path d="M568 245h128l58 59v72H560V246z" fill="#26353c"/>
+    <path d="M594 266h91l39 40H594z" fill="#172126"/>
+    <path d="M584 319h140M616 322v36M698 319v23M729 338h26M558 286h-19M754 362h18v14h-18"/>
+    <path d="M560 376h-22M163 352h-26v24h26M286 375h282"/>
+  </g>
+  <g fill="#172126" stroke="#d7e0e3" stroke-width="2.5">
+    <circle cx="206" cy="376" r="34"/><circle cx="291" cy="376" r="34"/><circle cx="652" cy="376" r="34"/>
+    <circle cx="206" cy="376" r="14"/><circle cx="291" cy="376" r="14"/><circle cx="652" cy="376" r="14"/>
+  </g>
+  <g stroke="#bd632c" stroke-width="2">
+    <path d="M112 159h433M112 149v20M545 149v20M112 175v-26M545 175v-26"/>
+    <path d="M698 244v-57h82M779 177v20"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="12" fill="#c7d1d5" letter-spacing="1.8">
+    <text x="112" y="127">VOLUME DO PEDIDO</text>
+    <text x="568" y="127">TRANSPORTE A GRANEL</text>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="11" fill="#81959f">
+    <text x="64" y="451">Esquema ilustrativo de caminhão basculante</text>
+    <text x="836" y="451" text-anchor="end">Sem escala ou especificação de veículo</text>
+  </g>
+</svg>

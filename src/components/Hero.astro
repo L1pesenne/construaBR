@@ -3,21 +3,18 @@ import ContactButton from './ContactButton.astro';
 import Icon from './Icon.astro';
 import LocalImage from './LocalImage.astro';
 ---
-<section class="hero" aria-labelledby="hero-title">
-  <div class="container">
-    <div class="hero-heading-line"><span>CONSTRUABR DISTRIBUIDORA</span><span>RIO DE JANEIRO <Icon name="pin" size={14} /></span></div>
-    <div class="hero-panel">
-      <div class="hero-copy">
-        <span class="eyebrow"><span class="orange-line"></span> A BASE DE UMA BOA OBRA</span>
-        <h1 id="hero-title">Materiais a granel<br />para sua obra,<br /><span>com entrega ágil <span class="hero-location">no RJ.</span></span></h1>
-        <p class="hero-description">Distribuição de materiais de construção com transporte em caminhões basculantes e atendimento personalizado.</p>
-        <div class="hero-actions"><ContactButton /><a class="button button-outline" href="#materiais">Explorar materiais<Icon name="arrow" size={18} /></a></div>
-        <div class="hero-footnote"><Icon name="check" size={18} /><span>Atendimento direto. Do orçamento à entrega.</span></div>
-      </div>
-      <figure class="hero-photo">
-        <LocalImage asset="areia-lavada" alt="Fotografia fornecida de areia a granel, com textura clara vista de perto" sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 959px) 42vw, 640px" priority />
-        <figcaption><span>DO MATERIAL À SUA OBRA</span><strong>Uma base para construir.</strong><span class="hero-photo-note">Fotografia de referência · catálogo sujeito à confirmação.</span></figcaption>
-      </figure>
+<section class="editorial-hero" aria-labelledby="hero-title">
+  <div class="container editorial-grid">
+    <div class="editorial-hero-copy">
+      <span class="editorial-kicker">CONSTRUABR DISTRIBUIDORA · RIO DE JANEIRO</span>
+      <h1 id="hero-title"><span>Materiais a granel.</span><span>Logística para</span><span>sua obra.</span></h1>
+      <p>Fornecimento de materiais de construção no Rio de Janeiro, com transporte por caminhões basculantes e atendimento comercial direto.</p>
+      <div class="editorial-hero-actions"><ContactButton /><a class="editorial-link" href="#materiais">Conhecer materiais<Icon name="arrow" size={19} /></a></div>
+      <a class="editorial-about-link" href="/sobre/">Conheça a ConstruaBR <span aria-hidden="true">↗</span></a>
     </div>
+    <figure class="editorial-hero-photo">
+      <LocalImage asset="areia-lavada" alt="Textura de areia a granel em fotografia original fornecida pela ConstruaBR" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1199px) 54vw, 760px" priority />
+      <figcaption><span>MATERIAIS A GRANEL</span><span>Fotografia fornecida · referência visual</span></figcaption>
+    </figure>
   </div>
 </section>

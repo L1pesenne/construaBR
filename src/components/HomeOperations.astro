@@ -1,0 +1,10 @@
+---
+import { company } from '../config/company';
+const specs = [
+  ['FORNECIMENTO', 'Exclusivamente a granel', 'Sem ensacados ou fracionados'],
+  ['TRANSPORTE', 'Caminhões basculantes', 'Dimensionados pelo volume'],
+  ['PRAZO', `${company.deliveryHours} horas após aprovação`, 'Conforme condições operacionais'],
+  ['COBERTURA', `Raio máximo de ${company.serviceRadiusKm} km`, 'Consulta por endereço de entrega'],
+];
+---
+<section class="editorial-operations" aria-label="Condições operacionais"><div class="container"><dl>{specs.map(([label, value, detail]) => <div><dt>{label}</dt><dd><strong>{value}</strong><span>{detail}</span></dd></div>)}</dl><p>Aprovação do pedido pelo WhatsApp. Prazo e atendimento sujeitos às condições operacionais.</p></div></section>

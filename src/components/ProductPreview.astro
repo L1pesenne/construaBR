@@ -1,12 +1,12 @@
 ---
-import ProductCard from './ProductCard.astro';
 import Icon from './Icon.astro';
 import ContactButton from './ContactButton.astro';
-import SectionTitle from './SectionTitle.astro';
-import { visibleProducts, hasDemoProducts } from '../data/products';
+import LocalImage from './LocalImage.astro';
+import { products } from '../data/products';
+import { canPublishProduct } from '../lib/catalog';
+const approvedProducts = products.filter(canPublishProduct).slice(0, 4);
 ---
-<section class="section materials" id="materiais" aria-labelledby="materials-title"><div class="container">
-  <SectionTitle id="materials-title" eyebrow="MATERIAIS EM FOCO" title="Materiais para cada etapa da sua obra."><a class="text-link" href="/produtos/">Ver todos os materiais <Icon name="arrow" size={20} /></a></SectionTitle>
-  {hasDemoProducts && <p class="demo-notice">Vitrine de demonstração. Os materiais abaixo são exemplos e dependem de validação comercial.</p>}
-  {visibleProducts.length ? <div class="product-grid">{visibleProducts.slice(0, 6).map(product => <ProductCard product={product} />)}</div> : <div class="empty-catalog"><Icon name="layers" size={36} /><div><h3>Cada obra começa com uma boa escolha.</h3><p>Nosso catálogo está em preparação. Consulte os materiais e a disponibilidade diretamente com a equipe.</p></div><ContactButton label="Consultar materiais" /></div>}
+<section class="editorial-materials" id="materiais" aria-labelledby="materials-title"><div class="container">
+  <div class="editorial-section-heading editorial-grid"><div class="editorial-section-label"><span class="editorial-kicker">FORNECIMENTO</span></div><div class="editorial-section-title"><h2 id="materials-title">Materiais para<br />o seu pedido.</h2><p>Consulte o material, o volume necessário e as condições de fornecimento para sua obra.</p></div><a class="editorial-link editorial-heading-link" href="/produtos/">Consultar catálogo<Icon name="arrow" size={19} /></a></div>
+  {approvedProducts.length ? <div class="editorial-product-grid">{approvedProducts.map(product => <article class="editorial-product"><a href={`/produtos/${product.slug}/`} aria-label={`Conhecer ${product.name}`}><LocalImage asset={product.image} alt={product.alt} sizes="(max-width: 767px) calc(100vw - 40px), 45vw" /></a><div class="editorial-product-copy"><span class="editorial-kicker">{product.category}</span><h3><a href={`/produtos/${product.slug}/`}>{product.name}</a></h3><p>{product.description}</p><div class="editorial-product-links"><a class="editorial-link" href={`/produtos/${product.slug}/`}>Detalhes do material<Icon name="arrow" size={19} /></a><ContactButton materialSlug={product.slug} label="Consultar orçamento" variant="outline" /></div></div></article>)}</div> : <div class="editorial-materials-pending editorial-grid"><figure><LocalImage asset="pedrisco" alt="Textura de pedrisco em fotografia fornecida como referência visual" sizes="(max-width: 767px) calc(100vw - 40px), 50vw" /><figcaption>Fotografia de referência dos arquivos da ConstruaBR. Disponibilidade sob consulta.</figcaption></figure><div class="editorial-materials-consult"><span class="editorial-kicker">CONSULTA COMERCIAL</span><h3>Seu material.<br />As condições do seu pedido.</h3><p>Nosso catálogo está em preparação. Informe o material desejado para consultar a disponibilidade com a equipe.</p><p>Fornecimento exclusivamente a granel. Sem materiais ensacados ou fracionados.</p><ContactButton label="Consultar materiais" /></div></div>}
 </div></section>

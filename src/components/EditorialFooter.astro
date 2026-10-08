@@ -1,0 +1,10 @@
+---
+import Logo from './Logo.astro';
+import { company, whatsappUrl } from '../config/company';
+import { navigation } from '../data/navigation';
+const contact = whatsappUrl();
+---
+<footer class="editorial-footer"><div class="container">
+  <div class="editorial-footer-top editorial-grid"><div class="editorial-footer-brand"><Logo /><p>Distribuição de materiais de construção a granel no Rio de Janeiro.</p></div><div class="editorial-footer-navigation"><h2>Navegação</h2><ul>{navigation.map(link => <li><a href={link.href}>{link.label}</a></li>)}</ul></div><div class="editorial-footer-contact"><h2>Atendimento comercial</h2><p>Fale com {company.contactName}.</p>{contact && <a href={contact} target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>}{company.email && <a href={`mailto:${company.email}`}>{company.email}</a>}{company.businessHours && <p>{company.businessHours}</p>}{company.address && <p>{company.address}</p>}</div></div>
+  <div class="editorial-footer-bottom"><span>© {new Date().getFullYear()} {company.name}</span><span>Exclusivamente a granel. Sem ensacados ou fracionados.</span></div>
+</div></footer>

@@ -1,6 +1,18 @@
-# ConstruaBR Distribuidora — etapa 4/5
+# ConstruaBR Distribuidora — redesign corporativo
 
 Site institucional estático em Astro, TypeScript e Tailwind CSS. Homepage, catálogo, páginas institucionais e formulário de orçamento estão implementados, preservando a identidade visual existente. Não há e-commerce, cadastro, checkout, backend ou coleta de dados.
+
+## Redesign corporativo — rodada 1
+
+Homepage reconstruída sobre o projeto existente: hero editorial em 12 colunas, fotografia original sem sobreposição, faixa operacional compacta, materiais com apresentação editorial, logística em contraste, regiões em lista alinhada, CTA comercial e rodapé corporativo. Paleta neutra, SVG oficial intacto e fontes locais existentes. Estilos exclusivos da homepage; páginas internas mantidas.
+
+Produtos na homepage exigem aprovação comercial. Enquanto o catálogo não possui itens confirmados, a página exibe fotografias de referência e consulta de disponibilidade. Catálogo demonstrativo, rotas e formulário permanecem funcionais. WhatsApp oficial: (21) 99547-1761; e-mail: atendimento@construabr.com.
+
+- [Decisões de design e validação](docs/REDESIGN.md).
+- Repositório: [L1pesenne/construaBR](https://github.com/L1pesenne/construaBR).
+- Check de 49 arquivos sem diagnósticos; build e 12 testes aprovados.
+- Prévia local respondeu HTTP 200. Inspeção visual automatizada da página pendente por falha de inicialização do navegador do Codex; alternativa local solicitada. Não há capturas novas da homepage confirmadas até essa validação.
+- As capturas das etapas anteriores abaixo representam os layouts anteriores.
 
 ## Implementação da etapa 4
 
