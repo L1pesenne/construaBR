@@ -10,7 +10,7 @@ As onze referências abaixo continuam demonstrativas no desenvolvimento; nenhuma
 
 ## Validação desta atualização
 
-- `npm run check`: 49 arquivos, zero erros, avisos ou sugestões.
+- `npm run check`: 51 arquivos, zero erros, avisos ou sugestões na revisão final. A indicação de foco do teste de interação foi declarada explicitamente para eliminar a sugestão de tipagem.
 - `npm run build`: seis páginas, sem detalhes de produtos não aprovados.
 - `npm test`: 13 testes aprovados. Novo teste executa o controlador real em uma superfície DOM mínima: filtros pela URL, união de categorias, pesquisa, ausência de resultados, contagem demonstrativa, limpeza/foco e popstate. Não substitui navegador visual.
 - `node --experimental-strip-types scripts/verify-dev-catalog.mjs` com `npm run dev` ativo: catálogo, onze detalhes, onze imagens WebP e contato HTTP 200; links de orçamento identificam cada slug; um H1 por detalhe e design system compartilhado.

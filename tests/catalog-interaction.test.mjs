@@ -8,7 +8,7 @@ import { products } from '../src/data/catalog.ts';
 
 // Executa o controlador real em uma superfície DOM mínima; não substitui QA visual.
 function mount(initialUrl) {
-  const search = Object.assign(new EventTarget(), { value: '', focus() { this.focused = true; } });
+  const search = Object.assign(new EventTarget(), { value: '', focused: false, focus() { this.focused = true; } });
   const checkboxes = [...new Set(products.map(p => p.category))].map(value => ({ value, checked: false }));
   const items = products.map(p => ({ hidden: false, dataset: { searchText: `${p.name} ${p.category} ${p.description} ${p.detailedDescription}`, category: p.category } }));
   const count = { textContent: '' }, empty = { hidden: true };
