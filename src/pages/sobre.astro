@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import ContactButton from '../components/ContactButton.astro';
@@ -16,6 +17,6 @@ const approved = products.filter(canPublishProduct);
     <figure class="about-material"><LocalImage asset="areia-lavada" alt="Fotografia de areia lavada fornecida nos arquivos da ConstruaBR" sizes="(max-width: 767px) calc(100vw - 40px), 45vw" priority /><figcaption>Referência de material fornecida no projeto. A fotografia não representa instalações ou estoque confirmado.</figcaption></figure>
   </section>
   <DeliveryHighlights />
-  <section class="section"><div class="container institutional-grid"><div><span class="eyebrow">MATERIAIS A GRANEL</span><h2>O material certo começa pela consulta.</h2></div><div class="institutional-copy">{approved.length ? <p>Consulte nosso catálogo de {approved.map(product => product.name).join(', ')}. A equipe confirma disponibilidade e condições para cada pedido.</p> : <p>O catálogo comercial está em validação. Informe o material que sua obra precisa para consultar a disponibilidade com a equipe.</p>}<p>As referências documentais de areias e agregados orientam a organização do catálogo. A confirmação de cada material, de suas características e aplicações faz parte da revisão comercial.</p><a class="button button-outline" href="/produtos/">Conhecer os materiais →</a></div></div></section>
+  <section class="section"><div class="container institutional-grid"><div><span class="eyebrow">MATERIAIS A GRANEL</span><h2>O material certo começa pela consulta.</h2></div><div class="institutional-copy">{approved.length ? <p>Consulte nosso catálogo de {approved.map(product => product.name).join(', ')}. A equipe confirma disponibilidade e condições para cada pedido.</p> : <p>O catálogo comercial está em validação. Informe o material que sua obra precisa para consultar a disponibilidade com a equipe.</p>}<p>As referências documentais de areias e agregados orientam a organização do catálogo. A confirmação de cada material, de suas características e aplicações faz parte da revisão comercial.</p><a class="button button-outline" href={withBase('/produtos/')}>Conhecer os materiais →</a></div></div></section>
   <HowItWorks />
 </BaseLayout>

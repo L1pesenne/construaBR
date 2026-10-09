@@ -1,5 +1,6 @@
 ---
+import { withBase } from '../lib/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 ---
-<BaseLayout title="Página não encontrada" noindex><PageIntro eyebrow="Página não encontrada" title="Vamos voltar ao caminho certo." description="Este endereço não está disponível. Acesse o início para conhecer a ConstruaBR." /><div class="container page-content"><a class="button button-orange" href="/">Voltar ao início →</a></div></BaseLayout>
+<BaseLayout title="Página não encontrada" noindex><PageIntro eyebrow="Página não encontrada" title="Vamos voltar ao caminho certo." description="Este endereço não está disponível. Acesse o início para conhecer a ConstruaBR." /><div class="container page-content"><a class="button button-orange" href={withBase('/')}>Voltar ao início →</a></div></BaseLayout>

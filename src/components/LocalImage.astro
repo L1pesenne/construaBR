@@ -1,4 +1,5 @@
 ---
+import { withBase, withBaseSrcSet } from '../lib/paths';
 import { assets, type AssetKey } from '../data/assets.generated';
 interface Props {
   asset: AssetKey | null;
@@ -10,4 +11,4 @@ interface Props {
 const { asset, alt, sizes = '(max-width: 639px) calc(100vw - 40px), (max-width: 959px) 30vw, 400px', class: className, priority = false } = Astro.props;
 const image = asset ? assets[asset] : { src: '/images/materials/placeholder.svg', srcSet: undefined, width: 640, height: 420 };
 ---
-<img src={image.src} srcset={image.srcSet} sizes={sizes} alt={alt} width={image.width} height={image.height} class={className} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />
+<img src={withBase(image.src)} srcset={withBaseSrcSet(image.srcSet)} sizes={sizes} alt={alt} width={image.width} height={image.height} class={className} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />

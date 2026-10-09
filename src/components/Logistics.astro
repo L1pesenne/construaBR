@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/paths';
 import ContactButton from './ContactButton.astro';
 import Icon from './Icon.astro';
 import { company } from '../config/company';
@@ -18,7 +19,7 @@ import { company } from '../config/company';
     </div>
     <figure class="logistics-visual">
       <div class="logistics-visual-label"><Icon name="truck" size={20} /><span>TRANSPORTE EXCLUSIVO POR BASCULANTES</span></div>
-      <img src="/images/illustrations/basculante.svg" alt="Ilustração conceitual de caminhão basculante transportando material a granel" width="800" height="640" loading="lazy" decoding="async" />
+      <img src={withBase('/images/illustrations/basculante.svg')} alt="Ilustração conceitual de caminhão basculante transportando material a granel" width="800" height="640" loading="lazy" decoding="async" />
       <figcaption>Ilustração conceitual. Fotografia do transporte em preparação.</figcaption>
     </figure>
   </div>

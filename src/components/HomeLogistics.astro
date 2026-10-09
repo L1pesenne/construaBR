@@ -1,8 +1,9 @@
 ---
+import { withBase } from '../lib/paths';
 import ContactButton from './ContactButton.astro';
 import { company } from '../config/company';
 ---
 <section class="editorial-logistics" aria-labelledby="home-logistics-title"><div class="container editorial-grid">
   <div class="editorial-logistics-copy"><span class="editorial-kicker">LOGÍSTICA DE ENTREGA</span><h2 id="home-logistics-title">O volume define<br />o transporte.</h2><p>Materiais a granel seguem exclusivamente em caminhões basculantes. O veículo é dimensionado conforme o volume de cada pedido.</p><dl class="editorial-logistics-specs"><div><dt>Prazo de entrega</dt><dd>{company.deliveryHours} horas após aprovação pelo WhatsApp, conforme condições operacionais.</dd></div><div><dt>Acesso à obra</dt><dd>Informe o endereço e as condições de acesso para confirmar a viabilidade da entrega.</dd></div></dl><ContactButton label="Consultar minha entrega" variant="outline" /></div>
-  <figure class="editorial-logistics-figure"><img src="/images/illustrations/basculante-esquema.svg" alt="Esquema ilustrativo, sem escala, de caminhão basculante para transporte a granel" width="900" height="520" loading="lazy" decoding="async" /><figcaption><span>TRANSPORTE POR BASCULANTES</span><span>Esquema ilustrativo · não representa frota comprovada</span></figcaption></figure>
+  <figure class="editorial-logistics-figure"><img src={withBase('/images/illustrations/basculante-esquema.svg')} alt="Esquema ilustrativo, sem escala, de caminhão basculante para transporte a granel" width="900" height="520" loading="lazy" decoding="async" /><figcaption><span>TRANSPORTE POR BASCULANTES</span><span>Esquema ilustrativo · não representa frota comprovada</span></figcaption></figure>
 </div></section>

@@ -1,5 +1,11 @@
 # ConstruaBR Distribuidora — redesign corporativo
 
+## Preparado para GitHub Pages
+
+Node.js 24, validação automática em pushes/PRs e publicação manual pela aba Actions. Veja o [passo a passo para publicar](docs/GITHUB_PAGES.md). O endereço previsto é https://l1pesenne.github.io/construaBR/. Enviar código não publica o site automaticamente.
+
+Para conferir tudo localmente: `npm ci` e `npm run validate`. Os relatos de validação abaixo são históricos.
+
 Site institucional estático em Astro, TypeScript e Tailwind CSS. Homepage, catálogo, páginas institucionais e formulário de orçamento estão implementados, preservando a identidade visual existente. Não há e-commerce, cadastro, checkout, backend ou coleta de dados.
 
 ## Catálogo corporativo premium — rodada 2
@@ -76,7 +82,7 @@ npm ci
 npm run dev
 ```
 
-Abra o endereço indicado pelo Astro, normalmente http://127.0.0.1:4321. Dependências e fontes são locais após a instalação. O site não solicita imagens, fontes, mapas ou APIs externas em tempo de navegação.
+Abra o endereço indicado pelo Astro, normalmente http://127.0.0.1:4321/construaBR/. Dependências e fontes são locais após a instalação. O site não solicita imagens, fontes, mapas ou APIs externas em tempo de navegação.
 
 ```sh
 npm run check
@@ -85,7 +91,7 @@ npm test
 npm run preview
 ```
 
-Os testes verificam a saída de produção, portanto exigem um build anterior. `dist/` contém os arquivos para uma futura hospedagem estática. O servidor local precisa estar ativo; não abra o HTML diretamente por `file://`. Nenhuma publicação ou push foi realizado.
+Os testes verificam a saída de produção, portanto exigem um build anterior. `dist/` contém os arquivos para uma futura hospedagem estática. O servidor local precisa estar ativo; não abra o HTML diretamente por `file://`. A publicação é manual pelo workflow documentado em docs/GITHUB_PAGES.md.
 
 Em ambientes Windows restritos que bloqueiem a pasta de configuração global do Astro, desative a telemetria apenas no terminal atual antes dos comandos: `$env:ASTRO_TELEMETRY_DISABLED='1'` (PowerShell). Foi a opção utilizada nesta validação.
 

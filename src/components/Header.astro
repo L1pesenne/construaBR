@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/paths';
 import Logo from './Logo.astro';
 import ContactButton from './ContactButton.astro';
 import { navigation } from '../data/navigation';
@@ -8,7 +9,7 @@ import { navigation } from '../data/navigation';
     <Logo />
     <button class="menu-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span></button>
     <nav id="main-navigation" class="main-navigation" aria-label="Navegação principal">
-      {navigation.map(link => <a href={link.href} aria-current={(link.href === '/' ? Astro.url.pathname === '/' : Astro.url.pathname.startsWith(link.href)) ? 'page' : undefined}>{link.label}</a>)}
+      {navigation.map(link => <a href={withBase(link.href)} aria-current={(link.href === '/' ? Astro.url.pathname === withBase('/') : Astro.url.pathname.startsWith(withBase(link.href))) ? 'page' : undefined}>{link.label}</a>)}
       <ContactButton />
     </nav>
   </div>

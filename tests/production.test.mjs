@@ -8,6 +8,11 @@ import { canPublishProduct } from '../src/lib/catalog.ts';
 import { company, whatsappUrl } from '../src/config/company.ts';
 
 const dist = resolve('dist');
+const base = '/construaBR/';
+function localPath(url) {
+  assert.ok(url.startsWith(base), `URL fora da base do GitHub Pages: ${url}`);
+  return url.slice(base.length);
+}
 function htmlFiles(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? htmlFiles(join(dir, entry.name)) : entry.name.endsWith('.html') ? [join(dir, entry.name)] : []);
 }
@@ -28,8 +33,8 @@ test('produção não publica os exemplos de materiais', () => {
   const catalog = readFileSync(join(dist, 'produtos/index.html'), 'utf8');
   const contact = readFileSync(join(dist, 'contato/index.html'), 'utf8');
   for (const product of products.filter(item => !canPublishProduct(item))) {
-    assert.ok(!home.includes(`/produtos/${product.slug}/`), 'Homepage não deve oferecer referência não aprovada');
-    assert.ok(!catalog.includes(`/produtos/${product.slug}/`));
+    assert.ok(!home.includes(`${base}produtos/${product.slug}/`), 'Homepage não deve oferecer referência não aprovada');
+    assert.ok(!catalog.includes(`${base}produtos/${product.slug}/`));
     assert.ok(!contact.includes(`"slug":"${product.slug}"`), 'Contato público não deve carregar referências não aprovadas');
   }
 });
@@ -42,8 +47,8 @@ test('links e recursos locais apontam para arquivos existentes; sem recursos rem
         if (attr === 'src') assert.ok(!/^https?:/.test(url), `Recurso remoto em ${file}: ${url}`);
         continue;
       }
-      const pathname = url.split(/[?#]/)[0];
-      const target = join(dist, pathname.endsWith('/') ? `${pathname}index.html` : pathname);
+      const pathname = localPath(url.split(/[?#]/)[0]);
+      const target = join(dist, !pathname || pathname.endsWith('/') ? `${pathname}index.html` : pathname);
       assert.ok(existsSync(target), `Link quebrado em ${file}: ${url}`);
     }
     assert.match(html, /<html lang="pt-BR"/);
@@ -53,7 +58,7 @@ test('links e recursos locais apontam para arquivos existentes; sem recursos rem
       for (const variant of srcset.split(',')) {
         const src = variant.trim().split(/\s+/)[0];
         assert.ok(src.startsWith('/'), `Imagem responsiva externa: ${src}`);
-        assert.ok(existsSync(join(dist, src)), `Imagem responsiva ausente: ${src}`);
+        assert.ok(existsSync(join(dist, localPath(src))), `Imagem responsiva ausente: ${src}`);
       }
     }
     for (const [, href] of html.matchAll(/href="(https:\/\/wa\.me\/[^\"]+)"/g)) {
@@ -78,5 +83,17 @@ test('logo original é preservado e fotos otimizadas mantêm proporção', async
     }
     const largest = item.variants.at(-1);
     assert.ok(largest.bytes < item.sourceBytes, `Versão otimizada maior que o original: ${item.key}`);
+  }
+});
+
+test('GitHub Pages preserva destaque da navegação e estilo da homepage', () => {
+  for (const route of ['', 'produtos', 'sobre', 'entregas', 'contato']) {
+    const html = readFileSync(join(dist, route, 'index.html'), 'utf8');
+    const nav = html.match(/<nav[^>]*id="main-navigation"[^>]*>([\s\S]*?)<\/nav>/)[1];
+    const active = [...nav.matchAll(/<a\b[^>]*aria-current="page"[^>]*>/g)];
+    assert.equal(active.length, 1, 'Uma única página deve estar ativa');
+    assert.ok(active[0][0].includes('href="' + base + (route ? route + '/' : '') + '"'));
+    if (!route) assert.match(html, /<body[^>]*class="[^"]*corporate-home/);
+    assert.ok(html.includes('href="' + base + 'contato/#atendimento"'));
   }
 });

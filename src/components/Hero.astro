@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/paths';
 import ContactButton from './ContactButton.astro';
 import Icon from './Icon.astro';
 import LocalImage from './LocalImage.astro';
@@ -10,7 +11,7 @@ import LocalImage from './LocalImage.astro';
       <h1 id="hero-title"><span>Materiais a granel.</span><span>Logística para</span><span>sua obra.</span></h1>
       <p>Fornecimento de materiais de construção no Rio de Janeiro, com transporte por caminhões basculantes e atendimento comercial direto.</p>
       <div class="editorial-hero-actions"><ContactButton /><a class="editorial-link" href="#materiais">Conhecer materiais<Icon name="arrow" size={19} /></a></div>
-      <a class="editorial-about-link" href="/sobre/">Conheça a ConstruaBR <span aria-hidden="true">↗</span></a>
+      <a class="editorial-about-link" href={withBase('/sobre/')}>Conheça a ConstruaBR <span aria-hidden="true">↗</span></a>
     </div>
     <figure class="editorial-hero-photo">
       <LocalImage asset="areia-lavada" alt="Textura de areia a granel em fotografia original fornecida pela ConstruaBR" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1199px) 54vw, 760px" priority />
