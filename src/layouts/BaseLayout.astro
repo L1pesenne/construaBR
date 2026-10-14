@@ -16,7 +16,7 @@ import '../styles/catalog.css';
 import '../styles/institutional.css';
 import '../styles/editorial.css';
 interface Props { title: string; description?: string; noindex?: boolean; editorial?: boolean; }
-const { title, description = 'Distribuição de materiais de construção exclusivamente a granel no Rio de Janeiro. Transporte em caminhões basculantes e orçamento pelo WhatsApp.', noindex = false, editorial = false } = Astro.props;
+const { title, description = 'Distribuição de materiais de construção no Rio de Janeiro. Transporte em caminhões basculantes e orçamento pelo WhatsApp.', noindex = false, editorial = false } = Astro.props;
 const canonical = company.domain ? new URL(Astro.url.pathname, company.domain).href : undefined;
 ---
 <!doctype html>

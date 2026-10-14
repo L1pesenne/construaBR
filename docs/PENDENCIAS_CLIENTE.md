@@ -25,7 +25,7 @@
 
 ## Regras já aplicadas
 
-Venda exclusivamente a granel; sem ensacados/fracionados. Transporte somente em basculantes, dimensionados pelo volume. Prazo de 24 horas após aprovação pelo WhatsApp, conforme condições operacionais. Atendimento limitado a 120 km da base, sem garantia automática para municípios inteiros. Sem preços, pagamento online ou cadastro.
+Transporte somente em basculantes, dimensionados pelo volume. Prazo de 24 horas após aprovação pelo WhatsApp, conforme condições operacionais. Atendimento limitado a 120 km da base, sem garantia automática para municípios inteiros. Sem preços, pagamento online ou cadastro.
 
 O catálogo da etapa 3 está implementado. Para publicar cada produto, registrar aprovação comercial, revisar suas descrições, autorizar a fotografia e preencher apenas características/unidades comprovadas. Nenhuma entrada atual está aprovada.
 

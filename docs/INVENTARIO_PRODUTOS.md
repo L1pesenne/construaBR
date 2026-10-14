@@ -1,6 +1,6 @@
 # Inventário de referências de materiais
 
-Fonte: página única de `imagens/Tipos de Areia.pdf` e nomes dos arquivos recebidos. Não há documento anterior confirmando quais itens são comercializados pela ConstruaBR. Todos dependem de validação por Alessandro.
+Fonte: página única de `imagens/Tipos de Areia.pdf` e nomes dos arquivos recebidos. Não há documento anterior confirmando quais itens são comercializados pela ConstruaBR. Todos dependem de validação comercial.
 
 | Nome no PDF | Referência descritiva do PDF | Imagem correspondente | Situação no site |
 | --- | --- | --- | --- |

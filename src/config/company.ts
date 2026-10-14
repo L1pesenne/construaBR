@@ -1,7 +1,6 @@
-/** null = informação pendente de confirmação por Alessandro. */
+/** null = informação pendente de confirmação comercial. */
 export const company = {
   name: 'ConstruaBR Distribuidora',
-  contactName: 'Alessandro',
   whatsapp: '5521995471761' as string | null, // Atendimento oficial: (21) 99547-1761.
   email: 'atendimento@construabr.com' as string | null,
   address: null as string | null,

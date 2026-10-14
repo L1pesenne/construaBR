@@ -17,7 +17,8 @@ const context = await browser.newContext({ deviceScaleFactor: 1, locale: 'pt-BR'
 const page = await context.newPage();
 page.on('pageerror', error => report.errors.push(String(error)));
 page.on('console', message => { if (message.type() === 'error') report.errors.push(message.text()); });
-const base = 'http://127.0.0.1:4321';
+const basePath = (process.env.SITE_BASE ?? '').replace(/\/$/, '');
+const base = `http://127.0.0.1:4321${basePath}`;
 const routes = [['home', '/'], ['catalogo', '/produtos/'], ['produto', '/produtos/areia-lavada/'], ['contato', '/contato/'], ['sobre', '/sobre/'], ['entregas', '/entregas/']];
 async function settle() {
   await page.evaluate(async () => {
@@ -53,7 +54,7 @@ try {
     }
   }
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(base, { waitUntil: 'networkidle' });
+  await page.goto(`${base}/`, { waitUntil: 'networkidle' });
   await page.locator('.menu-toggle').click();
   assert.equal(await page.locator('#main-navigation').isVisible(), true);
   await page.keyboard.press('Escape');
@@ -102,7 +103,8 @@ try {
   const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff2': 'font/woff2' };
   const server = createServer(async (req, res) => {
     try {
-      const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+      const requestPath = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+      const pathname = basePath && requestPath.startsWith(`${basePath}/`) ? requestPath.slice(basePath.length) : requestPath;
       const file = resolve(dist, '.' + (pathname.endsWith('/') ? pathname + 'index.html' : pathname));
       if (!file.startsWith(dist + '/') && !file.startsWith(dist + '\\')) { res.writeHead(403).end(); return; }
       res.setHeader('Content-Type', types[extname(file)] || 'application/octet-stream');
@@ -111,7 +113,7 @@ try {
   });
   await new Promise(r => server.listen(0, '127.0.0.1', r));
   try {
-    const publicBase = `http://127.0.0.1:${server.address().port}`;
+    const publicBase = `http://127.0.0.1:${server.address().port}${basePath}`;
     for (const width of [1440, 390]) {
       await page.setViewportSize({ width, height: width === 1440 ? 1000 : 844 });
       await page.goto(publicBase + '/produtos/', { waitUntil: 'networkidle' });

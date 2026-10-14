@@ -1,21 +1,21 @@
 # Publicar no GitHub Pages
 
 O projeto está preparado para https://l1pesenne.github.io/construaBR/.
-Enviar commits não publica o site: a publicação é manual e deve ser iniciada pelo responsável.
+Cada commit enviado para `main` valida, gera e publica a versão atual automaticamente pelo GitHub Actions. A publicação manual continua disponível quando for necessário repetir uma execução.
 
 ## Primeira publicação
 
 1. Abra https://github.com/L1pesenne/construaBR/settings/pages.
 2. Em **Build and deployment → Source**, selecione **GitHub Actions**.
-3. Abra **Actions → Publicar no GitHub Pages → Run workflow**.
-4. Escolha a branch **main** e confirme **Run workflow**.
+3. Envie um commit para a branch **main** ou abra **Actions → Publicar no GitHub Pages → Run workflow**.
+4. Caso execute manualmente, escolha a branch **main** e confirme **Run workflow**.
 5. Aguarde os jobs **build** e **deploy** ficarem verdes. O endereço publicado aparece no ambiente **github-pages**.
 
 O workflow instala com npm ci, verifica TypeScript/Astro, gera o site e executa os testes antes de publicar. Apenas dist/ é enviado ao Pages. Não é necessário enviar node_modules/, dist/ nem usar a pasta docs/ como fonte de publicação.
 
 ## Atualizações
 
-Envie suas alterações à main, confira **Actions → Validar projeto** e execute novamente **Publicar no GitHub Pages** quando desejar publicar a nova versão. Pull requests e pushes apenas validam; não fazem deploy automático.
+Envie suas alterações à main e confira **Actions → Publicar no GitHub Pages**. O push valida e publica a nova versão. Pull requests executam apenas a validação.
 
 ## Executar e conferir localmente
 

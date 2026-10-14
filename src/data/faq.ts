@@ -1,7 +1,7 @@
 import { company } from '../config/company';
 
 export const faq = [
-  { question: 'Vocês vendem materiais ensacados?', answer: 'Não. A ConstruaBR trabalha exclusivamente com materiais a granel. Não oferecemos produtos ensacados ou fracionados.' },
+  { question: 'Como funciona o fornecimento?', answer: 'Informe o material, a quantidade aproximada e o local de entrega. As condições são alinhadas no atendimento antes da confirmação do pedido.' },
   { question: 'Como solicitar um orçamento?', answer: 'Preencha o formulário de contato com seu nome, material e local de entrega. Revise a mensagem e abra o WhatsApp para confirmar o envio. A equipe verifica disponibilidade, quantidade e condições do pedido. Enquanto o número oficial estiver pendente, o site permite preparar a mensagem, mas não encaminhá-la.' },
   { question: 'Como funciona a entrega?', answer: 'O transporte é realizado exclusivamente em caminhões basculantes, dimensionados conforme o volume do pedido. Informe o endereço e as condições de acesso à obra para a equipe confirmar a viabilidade da entrega.' },
   { question: 'Qual é o prazo de entrega?', answer: `O prazo é de ${company.deliveryHours} horas após a aprovação do pedido pelo WhatsApp, conforme as condições operacionais da empresa. Solicitar um orçamento não significa que o pedido foi aprovado.` },

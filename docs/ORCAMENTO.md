@@ -2,7 +2,7 @@
 
 ## Fonte comercial
 
-Briefing original da etapa 1 e registros em `PENDENCIAS_CLIENTE.md` e `PLANO_IMPLEMENTACAO.md`: ConstruaBR Distribuidora, responsável Alessandro, distribuição de materiais a granel no RJ, sem ensacados/fracionados, basculantes dimensionados pelo volume, entrega em 24 horas após aprovação pelo WhatsApp conforme condições operacionais, raio máximo de 120 km. As sete regiões de destaque permanecem condicionadas à cobertura efetiva de cada endereço.
+Briefing original da etapa 1 e registros em `PENDENCIAS_CLIENTE.md` e `PLANO_IMPLEMENTACAO.md`: ConstruaBR Distribuidora, distribuição de materiais no RJ, basculantes dimensionados pelo volume, entrega em 24 horas após aprovação pelo WhatsApp conforme condições operacionais, raio máximo de 120 km. As sete regiões de destaque permanecem condicionadas à cobertura efetiva de cada endereço.
 
 O inventário da etapa 1 e o PDF Tipos de Areia não confirmam catálogo comercial, frota própria, certificações, tempo de atuação ou depoimentos. Nenhum desses fatos foi presumido. Os arquivos recebidos contêm fotos de materiais, sem fotos institucionais ou de transporte. Sobre usa uma foto de material com legenda explícita; Entregas reutiliza a ilustração conceitual já identificada.
 

@@ -145,7 +145,7 @@ O layout inclui menu mobile com estado ARIA, fechamento por Escape/clique extern
 
 ## Conteúdo comercial e segurança da publicação
 
-Preencher `src/config/company.ts` com os dados confirmados por Alessandro:
+Preencher `src/config/company.ts` com os dados comerciais confirmados:
 
 - `whatsapp`: DDI 55 + DDD + telefone, somente dígitos.
 - `address`, `baseCity`, `domain`, `businessHours`, `socialLinks`.
@@ -157,7 +157,7 @@ Os campos desconhecidos são `null` (redes sociais: lista vazia). Nenhum endere�
 
 **Regiões:** Baixada Fluminense, Região Metropolitana do Rio de Janeiro, Niterói, São Gonçalo, Angra dos Reis, Volta Redonda e Barra Mansa aparecem como referências condicionadas ao raio de 120 km da base e às condições operacionais. Não há garantia de atendimento integral desses municípios. Sem cidade/endereço da base, não há cálculo de distância nem mapa que sugira cobertura confirmada.
 
-**Entregas:** prazo condicionado à aprovação pelo WhatsApp e às condições operacionais. Transporte exclusivamente por basculantes, dimensionados conforme volume. Vendas exclusivamente a granel, sem ensacados ou fracionados.
+**Entregas:** prazo condicionado à aprovação pelo WhatsApp e às condições operacionais. Transporte exclusivamente por basculantes, dimensionados conforme volume.
 
 **SEO:** título e descrição por página, idioma, Open Graph, favicon e canonical somente se houver domínio configurado. Enquanto não houver domínio, todas as páginas usam `noindex, nofollow`. As rotas internas ainda em preparação usam `noindex` independentemente do domínio. Na conclusão dessas páginas, revisar a indexação. Não há dados estruturados de produto, avaliações ou organização com informações inventadas.
 
